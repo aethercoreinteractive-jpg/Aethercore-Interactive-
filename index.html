@@ -15,16 +15,17 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--obsidian); color: var(--white); margin: 0; line-height: 1.5; }
 
-        /* Brand Header */
         .brand-header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #222; }
         .logo-main { height: 45px; margin-bottom: 12px; }
-        .company-name { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); }
+        .company-name { font-size: 1.8rem; font-weight: 800; color: var(--white); }
         .tagline { font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
 
-        /* Modules */
         .module { padding: 40px 20px; }
-        input, textarea { width: 100%; background: var(--smoke); border: 1px solid #333; color: white; padding: 18px; border-radius: 12px; margin-bottom: 15px; }
-        .btn-gold { background: var(--gold); border: none; padding: 20px; width: 100%; border-radius: 12px; font-weight: 800; color: #000; }
+        .btn-gold { background: var(--gold); border: none; padding: 20px; width: 100%; border-radius: 12px; font-weight: 800; color: #000; display: block; text-align: center; text-decoration: none; }
+        
+        /* Featured Case Study Style */
+        .featured-case { background: var(--smoke); padding: 20px; border-radius: 16px; border: 1px solid #333; margin-bottom: 20px; }
+        .featured-case h3 { color: var(--gold); margin-bottom: 10px; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .card { background: var(--smoke); padding: 20px; border-radius: 16px; text-align: center; }
@@ -42,9 +43,18 @@
 
     <section class="module">
         <h2 style="font-size: 0.8rem; color: var(--gold); margin-bottom: 15px;">PROJECT INTAKE</h2>
-        <input type="text" placeholder="Project Name">
-        <textarea placeholder="Technical Specifications..." rows="4"></textarea>
-        <button class="btn-gold">INITIATE PARTNERSHIP</button>
+        <input type="text" style="width: 100%; background: var(--smoke); border: 1px solid #333; color: white; padding: 18px; border-radius: 12px; margin-bottom: 15px;" placeholder="Project Name">
+        <textarea style="width: 100%; background: var(--smoke); border: 1px solid #333; color: white; padding: 18px; border-radius: 12px; margin-bottom: 15px;" placeholder="Technical Specifications..." rows="4"></textarea>
+        <a href="#" class="btn-gold">INITIATE PARTNERSHIP</a>
+    </section>
+
+    <section class="module">
+        <h2 style="font-size: 0.8rem; color: var(--gold); margin-bottom: 15px;">FEATURED PRODUCT</h2>
+        <div class="featured-case">
+            <h3>Unidesk</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Viral-scale interface design optimized for high-performance productivity.</p>
+            <a href="https://rrbmusics-afk.github.io/Unidesk/" style="color: var(--gold); text-decoration: none; font-weight: bold;">[View Live Deployment]</a>
+        </div>
     </section>
 
     <section class="module">
@@ -52,8 +62,6 @@
         <div class="grid">
             <div class="card">FinTech OS</div>
             <div class="card">Cloud ERP</div>
-            <div class="card">AI Logistics</div>
-            <div class="card">Cyber Edge</div>
         </div>
     </section>
 
