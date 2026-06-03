@@ -15,17 +15,23 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--obsidian); color: var(--white); margin: 0; line-height: 1.5; }
 
-        .brand-header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #222; }
-        .logo-main { height: 45px; margin-bottom: 12px; }
-        .company-name { font-size: 1.8rem; font-weight: 800; color: var(--white); }
-        .tagline { font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
+        /* Perfect Header Alignment */
+        .brand-header { padding: 30px 20px; border-bottom: 1px solid #222; }
+        
+        /* Container for Logo and Name on same line */
+        .header-top { display: flex; align-items: center; gap: 12px; }
+        .logo-main { height: 40px; }
+        .company-name { font-size: 1.5rem; font-weight: 800; color: var(--white); }
+        
+        /* Tagline below logo/name */
+        .tagline { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; }
 
+        /* Modules */
         .module { padding: 40px 20px; }
         .btn-gold { background: var(--gold); border: none; padding: 20px; width: 100%; border-radius: 12px; font-weight: 800; color: #000; display: block; text-align: center; text-decoration: none; }
         
-        /* Featured Case Study Style */
         .featured-case { background: var(--smoke); padding: 20px; border-radius: 16px; border: 1px solid #333; margin-bottom: 20px; }
-        .featured-case h3 { color: var(--gold); margin-bottom: 10px; }
+        .featured-case h3 { color: var(--gold); margin-bottom: 5px; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .card { background: var(--smoke); padding: 20px; border-radius: 16px; text-align: center; }
@@ -36,8 +42,10 @@
 <body>
 
     <header class="brand-header">
-        <img src="Aethercore Logo.png" class="logo-main" alt="Aethercore">
-        <div class="company-name">Aethercore Interactive</div>
+        <div class="header-top">
+            <img src="Aethercore Logo.png" class="logo-main" alt="Aethercore">
+            <div class="company-name">Aethercore Interactive</div>
+        </div>
         <div class="tagline">Infrastructure for modern business</div>
     </header>
 
