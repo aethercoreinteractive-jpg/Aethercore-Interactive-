@@ -3,76 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore Interactive | Enterprise Engineering Portal</title>
+    <title>Aethercore | Engineering the Future</title>
     <style>
-        /* AETHERCORE BRAND IDENTITY */
         :root {
-            --navy: #002060;
+            --navy: #0a192f;
             --gold: #c5a059;
-            --bg: #eaeded;
             --white: #ffffff;
-            --text: #111111;
+            --soft-bg: #f8f9fa;
         }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--soft-bg); margin: 0; color: #333; }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+        /* Modernized Header */
+        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
+        .logo { height: 32px; }
 
-        /* Amazon-Style Nav */
-        header { background: var(--navy); padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
-        .logo { height: 35px; width: auto; }
-        .menu-btn { color: var(--white); font-size: 1.5rem; font-weight: bold; }
+        /* Sleek Cards instead of Boxes */
+        .module { background: var(--white); margin: 20px; padding: 24px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        /* Modern Inputs */
+        input, textarea { width: 100%; border: 2px solid #edf2f7; border-radius: 12px; padding: 15px; margin-bottom: 15px; background: #f7fafc; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--gold); }
+        .btn-modern { background: var(--navy); color: white; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; }
 
-        /* Secondary Nav */
-        .sub-nav { background: #232f3e; color: var(--white); padding: 10px; font-size: 0.85rem; display: flex; gap: 20px; overflow-x: auto; white-space: nowrap; }
+        /* Fluid Portfolio Grid */
+        .grid-modern { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card-modern { background: #fdfdfd; border: 1px solid #eee; padding: 20px; border-radius: 16px; text-align: center; font-size: 0.85rem; font-weight: 500; }
 
-        /* Modular Architecture */
-        .mod { background: var(--white); margin: 10px; padding: 16px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        h2 { font-size: 1.1rem; margin-bottom: 15px; color: #565959; border-left: 4px solid var(--gold); padding-left: 10px; }
-
-        /* Form Controls */
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #a2a6ac; border-radius: 4px; }
-        .btn-gold { background: var(--gold); border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; color: var(--navy); cursor: pointer; }
-
-        /* Portfolio Grid */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .card { border: 1px solid #d5d9d9; padding: 12px; text-align: center; font-size: 0.75rem; border-radius: 4px; font-weight: bold; }
-
-        /* Footer */
-        .contact-box { background: var(--white); padding: 30px 20px; text-align: center; border-top: 1px solid #ddd; }
+        .footer-mod { text-align: center; padding: 40px; color: #718096; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="Aethercore Logo.png" class="logo" alt="Aethercore">
-        <div class="menu-btn">☰</div>
+        <img src="Aethercore Logo.png" class="logo">
+        <div style="font-size: 1.2rem; font-weight: 800; color: var(--navy);">☰</div>
     </header>
 
-    <nav class="sub-nav">
-        <span>Solutions</span> | <span>Cloud Ops</span> | <span>Consulting</span> | <span>Security</span>
-    </nav>
+    <div style="padding: 20px 20px 0;">
+        <h1 style="font-size: 2rem; color: var(--navy);">Strategic Engineering</h1>
+    </div>
 
-    <section class="mod">
-        <h2>Submit Project Requirements</h2>
-        <input type="text" placeholder="Project Title / Client ID">
-        <textarea placeholder="Architecture Scope & Requirements" rows="4"></textarea>
-        <button class="btn-gold" onclick="alert('Proposal submitted to Aethercore Audit Team.')">INITIATE PARTNERSHIP</button>
+    <section class="module">
+        <h2 style="font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Project Inquiry</h2>
+        <input type="text" placeholder="Project Name">
+        <textarea placeholder="Tell us about your technical requirements..." rows="4"></textarea>
+        <button class="btn-modern">INITIATE PARTNERSHIP</button>
     </section>
 
-    <section class="mod">
-        <h2>Engineering Track Record</h2>
-        <div class="grid-2">
-            <div class="card">FinTech Core<br>[Link]</div>
-            <div class="card">Cloud ERP<br>[Link]</div>
-            <div class="card">Logistics AI<br>[Link]</div>
-            <div class="card">Cyber Defense<br>[Link]</div>
+    <section class="module">
+        <h2 style="font-size: 1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Track Record</h2>
+        <div class="grid-modern">
+            <div class="card-modern">FinTech OS</div>
+            <div class="card-modern">Cloud ERP</div>
+            <div class="card-modern">AI Logistics</div>
+            <div class="card-modern">Cyber Defense</div>
         </div>
     </section>
 
-    <footer class="contact-box">
-        <h2>Direct Institutional Contact</h2>
-        <p style="font-weight: bold; color: var(--gold); font-size: 1.2rem; margin: 10px 0;">aethercoreinteractive@gmail.com</p>
-        <p style="font-size: 0.7rem; color: #565959;">Security-cleared communication channel.</p>
+    <footer class="footer-mod">
+        <p>Contact Office</p>
+        <p style="color: var(--navy); font-weight: bold; font-size: 1.1rem; margin: 10px 0;">aethercoreinteractive@gmail.com</p>
+        <p>Aethercore Global © 2026</p>
     </footer>
 
 </body>
