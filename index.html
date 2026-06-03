@@ -3,73 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethercore Interactive | Enterprise Software Solutions</title>
+    <title>Aethercore Interactive | Enterprise Solutions & Digital Engineering</title>
     <style>
         :root {
-            --navy: #002060; /* Corporate Institutional Blue */
-            --light-blue: #0070c0;
+            --navy: #002060;
+            --gold: #c5a059;
             --white: #ffffff;
-            --grey: #f4f4f4;
-            --dark-grey: #333333;
+            --text: #333333;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--dark-grey); line-height: 1.6; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text); margin: 0; }
         
-        /* Navbar */
-        nav { background: var(--navy); color: var(--white); padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; border-bottom: 3px solid var(--navy); }
+        .logo { height: 60px; }
         
-        /* Hero Section */
-        .hero { background: var(--grey); padding: 80px 10%; text-align: center; }
-        .hero h1 { font-size: 2.5rem; color: var(--navy); margin-bottom: 1rem; }
+        /* Executive Hero */
+        .hero { background: var(--navy); color: var(--white); padding: 100px 10%; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
         
-        /* Content Sections */
-        section { padding: 60px 10%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .box { padding: 20px; border: 1px solid #ddd; background: var(--white); }
+        /* Section Containers */
+        .content-block { padding: 80px 10%; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .card { border-top: 4px solid var(--gold); padding-top: 20px; }
         
-        /* Footer */
-        footer { background: var(--navy); color: var(--white); text-align: center; padding: 40px; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            nav { flex-direction: column; gap: 1rem; }
+        /* Mobile Optimization */
+        @media (max-width: 900px) { 
+            .grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="font-weight: bold; font-size: 1.5rem; letter-spacing: 2px;">AETHERCORE INTERACTIVE</div>
-        <div>Software | Consulting | Innovation</div>
+        <img src="Aethercore Logo.png" alt="Aethercore Interactive" class="logo">
+        <div style="font-weight: 700; color: var(--navy);">PARTNERSHIP INQUIRIES: AETHERCOREINTERACTIVE@GMAIL.COM</div>
     </nav>
 
     <section class="hero">
-        <h1>Transforming Business through Digital Engineering</h1>
-        <p>Aethercore Interactive partners with global enterprises to deliver scalable software, AI-driven analytics, and robust cloud infrastructure.</p>
+        <h1>Strategic Software Engineering</h1>
+        <p style="font-size: 1.25rem; max-width: 800px;">For the 50cr project lifecycle, Aethercore provides the architectural rigor, governance, and technical precision required to deliver mission-critical infrastructure at scale.</p>
     </section>
 
-    <section>
-        <h2 style="margin-bottom: 30px;">Enterprise Service Portfolio</h2>
+    <section class="content-block">
+        <h2 style="color: var(--navy); margin-bottom: 40px;">Institutional Capabilities</h2>
         <div class="grid">
-            <div class="box">
-                <h3>Digital Transformation</h3>
-                <p>Modernizing legacy systems to improve operational efficiency and agility.</p>
+            <div class="card">
+                <h3>Enterprise Architecture</h3>
+                <p>High-availability systems designed for massive concurrency and fault tolerance.</p>
             </div>
-            <div class="box">
-                <h3>Product Engineering</h3>
-                <p>End-to-end development of custom software products from ideation to deployment.</p>
+            <div class="card">
+                <h3>Lifecycle Management</h3>
+                <p>Rigorous CI/CD pipelines, automated QA, and technical debt minimization.</p>
             </div>
-            <div class="box">
-                <h3>Consulting Services</h3>
-                <p>Strategic technology consulting to align your IT roadmap with business goals.</p>
+            <div class="card">
+                <h3>Scalability & Security</h3>
+                <p>Hardened security protocols and elastic cloud infrastructure that grows with your load.</p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p><strong>Contact for Partnership Inquiries:</strong></p>
-        <p style="font-size: 1.2rem; margin-top: 10px;">aethercoreinteractive@gmail.com</p>
-        <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2026 Aethercore Interactive. All Rights Reserved.</p>
+    <footer style="background: #f8f8f8; padding: 40px 10%; text-align: center; border-top: 1px solid #ddd;">
+        <p>Aethercore Interactive | Global Technology Consultancy</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Commitment to excellence in every line of code.</p>
     </footer>
 
 </body>
