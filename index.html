@@ -3,72 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethercore Interactive | Enterprise Engineering</title>
+    <title>Aethercore Interactive | Enterprise Engineering Portal</title>
     <style>
+        /* 1. ARCHITECTURAL VARIABLES */
         :root {
-            --navy: #0a192f;
-            --charcoal: #112240;
-            --slate: #8892b0;
-            --gold: #c5a059;
-            --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --nav-bg: #002060;
+            --accent-gold: #c5a059;
+            --portal-bg: #f4f4f4;
+            --card-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--white); color: var(--navy); line-height: 1.6; }
 
-        /* Section 1: Hero - Full Height Impact */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; background: linear-gradient(135deg, var(--navy) 0%, #020c1b 100%); color: var(--white); }
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.1; margin-bottom: 2rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--portal-bg); color: var(--text-dark); line-height: 1.5; }
 
-        /* Section 2: Methodology - Asymmetric Grid */
-        .method { padding: 100px 10%; display: grid; grid-template-columns: 40% 1fr; gap: 60px; align-items: center; }
-        .method-text { border-left: 4px solid var(--gold); padding-left: 30px; }
+        /* 2. GLOBAL NAV (Amazon/Flipkart Style) */
+        .header-main { background: var(--nav-bg); padding: 10px 5%; display: flex; align-items: center; gap: 30px; position: sticky; top: 0; z-index: 1000; }
+        .logo-box { height: 50px; }
+        .search-container { flex-grow: 1; display: flex; }
+        .search-input { width: 100%; padding: 12px; border: none; border-radius: 4px 0 0 4px; }
+        .search-btn { padding: 10px 25px; background: var(--accent-gold); border: none; font-weight: bold; cursor: pointer; }
 
-        /* Section 3: Industry Verticals - Card Density */
-        .verticals { padding: 100px 10%; background: var(--navy); color: var(--white); }
-        .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .v-card { background: var(--charcoal); padding: 40px; border-radius: 4px; transition: var(--transition); }
-        .v-card:hover { transform: translateY(-10px); border-top: 2px solid var(--gold); }
+        /* 3. CATEGORY STRIP */
+        .cat-bar { background: var(--card-white); display: flex; justify-content: center; gap: 40px; padding: 15px; border-bottom: 1px solid #ddd; }
+        .cat-link { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
 
-        /* Section 4: Contact - Minimalist Statement */
-        .contact { padding: 100px 10%; text-align: center; border-top: 1px solid #ddd; }
+        /* 4. MAIN PORTAL LAYOUT (Asymmetric Grid) */
+        .portal-wrapper { display: grid; grid-template-columns: 240px 1fr 280px; gap: 20px; padding: 20px 5%; }
         
-        @media (max-width: 768px) {
-            .method { grid-template-columns: 1fr; }
-            .hero { height: 60vh; }
+        .side-nav { background: var(--card-white); padding: 20px; border-radius: 4px; box-shadow: var(--shadow); }
+        .side-nav h4 { margin-bottom: 15px; border-bottom: 2px solid var(--nav-bg); padding-bottom: 5px; }
+        
+        .content-zone { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .content-card { background: var(--card-white); padding: 25px; box-shadow: var(--shadow); border-top: 4px solid var(--nav-bg); }
+        .content-card h3 { color: var(--nav-bg); margin-bottom: 10px; }
+
+        .right-aside { background: var(--nav-bg); color: white; padding: 25px; border-radius: 4px; }
+
+        /* 5. MOBILE OPTIMIZATION (Strictly Responsive) */
+        @media (max-width: 1024px) {
+            .portal-wrapper { grid-template-columns: 1fr; }
+            .side-nav, .right-aside { display: none; } /* Simplified for mobile */
+        }
+        @media (max-width: 600px) {
+            .header-main { flex-wrap: wrap; }
+            .content-zone { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>Engineering <br>Digital Sovereignty.</h1>
-        <p style="font-size: 1.5rem; max-width: 600px; color: var(--slate);">Aethercore Interactive provides the architectural rigor and operational precision required for 50cr+ infrastructure projects.</p>
-    </section>
-
-    <section class="method">
-        <div class="method-text">
-            <h2 style="font-size: 2.5rem;">The Aethercore Methodology</h2>
+    <!-- Header -->
+    <header class="header-main">
+        <img src="Aethercore Logo.png" class="logo-box" alt="Aethercore Logo">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search enterprise services...">
+            <button class="search-btn">SEARCH</button>
         </div>
-        <div>
-            <p>We do not treat software as a product; we treat it as an ecosystem. Our senior engineering teams utilize a 3-tier validation process for every sprint, ensuring zero-defect deployment for mission-critical enterprise environments.</p>
-        </div>
-    </section>
+    </header>
 
-    <section class="verticals">
-        <h2>Enterprise Verticals</h2>
-        <div class="v-grid">
-            <div class="v-card"><h3>FinTech Infrastructure</h3><p>High-frequency, secure transaction processing cores.</p></div>
-            <div class="v-card"><h3>Logistics & SCM</h3><p>Real-time predictive modeling for complex supply chains.</p></div>
-            <div class="v-card"><h3>Automotive/Embedded</h3><p>Performance-critical software for next-gen mobility.</p></div>
-        </div>
-    </section>
+    <!-- Categories -->
+    <nav class="cat-bar">
+        <span class="cat-link">Cloud Engineering</span>
+        <span class="cat-link">AI & Data Science</span>
+        <span class="cat-link">DevOps</span>
+        <span class="cat-link">Consulting</span>
+    </nav>
 
-    <section class="contact">
-        <h2>Institutional Inquiries</h2>
-        <p style="font-size: 1.5rem; margin: 20px 0;">aethercoreinteractive@gmail.com</p>
-        <p>Direct contact for senior architectural assessment.</p>
-    </section>
+    <!-- Portal Content -->
+    <main class="portal-wrapper">
+        <aside class="side-nav">
+            <h4>Filter Solutions</h4>
+            <ul style="list-style: none; line-height: 2;">
+                <li><input type="checkbox"> FinTech</li>
+                <li><input type="checkbox"> HealthTech</li>
+                <li><input type="checkbox"> Logistics</li>
+                <li><input type="checkbox"> Automotive</li>
+            </ul>
+        </aside>
+
+        <section class="content-zone">
+            <!-- Services Grid -->
+            <article class="content-card">
+                <h3>Scalable ERP</h3>
+                <p>High-concurrency resource planning systems for large enterprises.</p>
+            </article>
+            <article class="content-card">
+                <h3>Cloud Migration</h3>
+                <p>Seamless transition to multi-cloud environments.</p>
+            </article>
+            <article class="content-card">
+                <h3>Cyber Defense</h3>
+                <p>Zero-trust security architecture for data protection.</p>
+            </article>
+            <article class="content-card">
+                <h3>Predictive Logistics</h3>
+                <p>AI-driven supply chain optimization.</p>
+            </article>
+            <article class="content-card">
+                <h3>Legacy Refactoring</h3>
+                <p>Modernizing core banking and insurance systems.</p>
+            </article>
+            <article class="content-card">
+                <h3>IoT Infrastructure</h3>
+                <p>Edge computing and sensor array management.</p>
+            </article>
+        </section>
+
+        <aside class="right-aside">
+            <h3>Contact Lead Architect</h3>
+            <p style="margin-top: 15px;">aethercoreinteractive@gmail.com</p>
+            <p style="font-size: 0.8rem; margin-top: 20px;">For 50cr project proposals, please include your technical specification document in your email.</p>
+        </aside>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: #666;">
+        &copy; 2026 Aethercore Interactive. All rights reserved. Registered Enterprise Engineering Entity.
+    </footer>
 
 </body>
 </html>
