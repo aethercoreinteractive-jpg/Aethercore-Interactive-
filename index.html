@@ -3,61 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore | Enterprise Portal</title>
+    <title>Aethercore Interactive | Enterprise Engineering Portal</title>
     <style>
-        :root { --n: #000a1f; --g: #b8860b; --w: #ffffff; --s: #f4f4f4; }
-        * { box-sizing: border-box; }
-        body { font-family: -apple-system, sans-serif; background: var(--s); color: var(--n); margin: 0; }
+        /* AETHERCORE BRAND IDENTITY */
+        :root {
+            --navy: #002060;
+            --gold: #c5a059;
+            --bg: #eaeded;
+            --white: #ffffff;
+            --text: #111111;
+        }
 
-        /* Unique Section Styles */
-        .mod { padding: 40px 20px; min-height: 80vh; display: flex; flex-direction: column; border-bottom: 2px solid #ddd; }
-        
-        /* Section 1: Dark, Command-focused */
-        .hero-mod { background: var(--n); color: var(--w); justify-content: center; }
-        
-        /* Section 2: Clean, Form-focused */
-        .form-mod { background: var(--w); border-left: 10px solid var(--n); }
-        
-        /* Section 3: Dark-grid, Portfolio-focused */
-        .port-mod { background: #1a2a4a; color: var(--w); }
-        .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        
-        /* Section 4: Gold-accent, Contact-focused */
-        .contact-mod { background: var(--g); color: var(--n); text-align: center; justify-content: center; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
 
-        button { background: var(--g); padding: 15px; border: none; border-radius: 4px; font-weight: bold; }
-        input, textarea { padding: 12px; margin: 10px 0; border: 1px solid #ccc; width: 100%; }
+        /* Amazon-Style Nav */
+        header { background: var(--navy); padding: 12px 15px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
+        .logo { height: 35px; width: auto; }
+        .menu-btn { color: var(--white); font-size: 1.5rem; font-weight: bold; }
+
+        /* Secondary Nav */
+        .sub-nav { background: #232f3e; color: var(--white); padding: 10px; font-size: 0.85rem; display: flex; gap: 20px; overflow-x: auto; white-space: nowrap; }
+
+        /* Modular Architecture */
+        .mod { background: var(--white); margin: 10px; padding: 16px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        h2 { font-size: 1.1rem; margin-bottom: 15px; color: #565959; border-left: 4px solid var(--gold); padding-left: 10px; }
+
+        /* Form Controls */
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #a2a6ac; border-radius: 4px; }
+        .btn-gold { background: var(--gold); border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; color: var(--navy); cursor: pointer; }
+
+        /* Portfolio Grid */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .card { border: 1px solid #d5d9d9; padding: 12px; text-align: center; font-size: 0.75rem; border-radius: 4px; font-weight: bold; }
+
+        /* Footer */
+        .contact-box { background: var(--white); padding: 30px 20px; text-align: center; border-top: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
-    <section class="mod hero-mod">
-        <h1 style="font-size: 2.5rem;">Aethercore <br>Interactive</h1>
-        <p>500 years of combined architectural experience, now accessible via mobile.</p>
+    <header>
+        <img src="Aethercore Logo.png" class="logo" alt="Aethercore">
+        <div class="menu-btn">☰</div>
+    </header>
+
+    <nav class="sub-nav">
+        <span>Solutions</span> | <span>Cloud Ops</span> | <span>Consulting</span> | <span>Security</span>
+    </nav>
+
+    <section class="mod">
+        <h2>Submit Project Requirements</h2>
+        <input type="text" placeholder="Project Title / Client ID">
+        <textarea placeholder="Architecture Scope & Requirements" rows="4"></textarea>
+        <button class="btn-gold" onclick="alert('Proposal submitted to Aethercore Audit Team.')">INITIATE PARTNERSHIP</button>
     </section>
 
-    <section class="mod form-mod">
-        <h2>Incorporate Your Project</h2>
-        <input type="text" placeholder="Enterprise Name">
-        <textarea placeholder="Technical Scope/Requirements" rows="5"></textarea>
-        <button>INITIATE SECURITY AUDIT</button>
-    </section>
-
-    <section class="mod port-mod">
-        <h2>Operational Portfolio</h2>
-        <div class="p-grid">
-            <div style="border: 1px solid #fff; padding: 10px;">Cloud/ERP Core</div>
-            <div style="border: 1px solid #fff; padding: 10px;">AI Logistics</div>
-            <div style="border: 1px solid #fff; padding: 10px;">FinTech Core</div>
-            <div style="border: 1px solid #fff; padding: 10px;">Security Ops</div>
+    <section class="mod">
+        <h2>Engineering Track Record</h2>
+        <div class="grid-2">
+            <div class="card">FinTech Core<br>[Link]</div>
+            <div class="card">Cloud ERP<br>[Link]</div>
+            <div class="card">Logistics AI<br>[Link]</div>
+            <div class="card">Cyber Defense<br>[Link]</div>
         </div>
     </section>
 
-    <section class="mod contact-mod">
-        <h2>Direct Line</h2>
-        <p style="font-weight: bold; font-size: 1.2rem;">aethercoreinteractive@gmail.com</p>
-        <p style="font-size: 0.8rem;">Secure, encrypted channel for 40cr-tier project inquiries.</p>
-    </section>
+    <footer class="contact-box">
+        <h2>Direct Institutional Contact</h2>
+        <p style="font-weight: bold; color: var(--gold); font-size: 1.2rem; margin: 10px 0;">aethercoreinteractive@gmail.com</p>
+        <p style="font-size: 0.7rem; color: #565959;">Security-cleared communication channel.</p>
+    </footer>
 
 </body>
 </html>
