@@ -3,69 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore | Obsidian Engineering</title>
+    <title>Aethercore Interactive | Infrastructure for modern business</title>
     <style>
         :root {
             --obsidian: #050505;
-            --deep-navy: #0a0e14;
-            --electric-gold: #d4af37;
-            --smoke: #1a1a1a;
+            --smoke: #141414;
+            --gold: #d4af37;
             --white: #ffffff;
+            --grey: #888888;
         }
-
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--obsidian); color: var(--white); margin: 0; line-height: 1.5; }
 
-        /* Glass Header */
-        header { background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(20px); padding: 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
-        .logo { height: 35px; }
+        /* Brand Header */
+        .brand-header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #222; }
+        .logo-main { height: 45px; margin-bottom: 12px; }
+        .company-name { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; color: var(--white); }
+        .tagline { font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
 
-        /* Fluid Modules */
-        .module { padding: 40px 20px; border-bottom: 1px solid #1a1a1a; }
-        .module-head { color: var(--electric-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-
-        /* Modern Input Fields */
-        input, textarea { width: 100%; background: var(--smoke); border: 1px solid #333; color: white; padding: 18px; border-radius: 12px; margin-bottom: 15px; font-size: 1rem; }
-        .btn-gold { background: linear-gradient(135deg, #d4af37, #aa8c2c); border: none; padding: 20px; width: 100%; border-radius: 12px; font-weight: 800; color: #000; font-size: 1rem; cursor: pointer; }
-
-        /* Portfolio Cards - No Borders, Shadow Depth */
+        /* Modules */
+        .module { padding: 40px 20px; }
+        input, textarea { width: 100%; background: var(--smoke); border: 1px solid #333; color: white; padding: 18px; border-radius: 12px; margin-bottom: 15px; }
+        .btn-gold { background: var(--gold); border: none; padding: 20px; width: 100%; border-radius: 12px; font-weight: 800; color: #000; }
+        
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { background: var(--smoke); padding: 25px; border-radius: 20px; text-align: center; }
+        .card { background: var(--smoke); padding: 20px; border-radius: 16px; text-align: center; }
 
-        .footer-mod { text-align: center; padding: 60px 20px; color: #555; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px 20px; color: var(--grey); font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="Aethercore Logo.png" class="logo">
-        <div style="width: 25px; height: 2px; background: var(--electric-gold);"></div>
+    <header class="brand-header">
+        <img src="Aethercore Logo.png" class="logo-main" alt="Aethercore">
+        <div class="company-name">Aethercore Interactive</div>
+        <div class="tagline">Infrastructure for modern business</div>
     </header>
 
-    <!-- Project Intake -->
     <section class="module">
-        <div class="module-head">Secure Gateway</div>
-        <h1 style="font-size: 1.8rem; margin-bottom: 20px;">Initiate Enterprise<br>Engineering</h1>
-        <input type="text" placeholder="Organization ID">
-        <textarea placeholder="Outline Project Scope..." rows="4"></textarea>
-        <button class="btn-gold">SUBMIT SPECIFICATIONS</button>
+        <h2 style="font-size: 0.8rem; color: var(--gold); margin-bottom: 15px;">PROJECT INTAKE</h2>
+        <input type="text" placeholder="Project Name">
+        <textarea placeholder="Technical Specifications..." rows="4"></textarea>
+        <button class="btn-gold">INITIATE PARTNERSHIP</button>
     </section>
 
-    <!-- Portfolio -->
     <section class="module">
-        <div class="module-head">Proven Track Record</div>
+        <h2 style="font-size: 0.8rem; color: var(--gold); margin-bottom: 15px;">OPERATIONAL PORTFOLIO</h2>
         <div class="grid">
-            <div class="card">FinTech Core</div>
-            <div class="card">Cloud OS</div>
+            <div class="card">FinTech OS</div>
+            <div class="card">Cloud ERP</div>
             <div class="card">AI Logistics</div>
             <div class="card">Cyber Edge</div>
         </div>
     </section>
 
-    <footer class="footer-mod">
-        <p>Aethercore Global Infrastructure</p>
-        <p style="color: var(--electric-gold); font-size: 1.1rem; margin: 15px 0;">aethercoreinteractive@gmail.com</p>
-        <p>System Status: Active | Protocol: Secure</p>
+    <footer>
+        <div style="color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 10px;">aethercoreinteractive@gmail.com</div>
+        <div>GLOBAL INFRASTRUCTURE DIVISION</div>
     </footer>
 
 </body>
