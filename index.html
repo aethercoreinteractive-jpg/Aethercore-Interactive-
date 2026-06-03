@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aethercore Interactive | Software Engineering Excellence</title>
+    <style>
+        :root { --primary: #0a192f; --accent: #64ffda; --text: #8892b0; --white: #e6f1ff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--primary); color: var(--text); line-height: 1.6; }
+        
+        /* Layout */
+        header { padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        section { padding: 5rem 10%; }
+        h1, h2 { color: var(--white); }
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .btn { padding: 1rem 2rem; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; display: inline-block; margin-top: 1rem; }
+        
+        /* Responsive Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { border-left: 2px solid var(--accent); padding: 1rem; background: #112240; }
+
+        @media (max-width: 768px) { section { padding: 3rem 5%; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="color: var(--white); font-weight: bold; font-size: 1.5rem;">AETHERCORE</div>
+    </header>
+
+    <section class="hero">
+        <h1>Architecting the Future of Digital Infrastructure.</h1>
+        <p>Aethercore Interactive delivers high-performance software solutions for the modern enterprise.</p>
+        <a href="mailto:aethercoreinteractive@gmail.com" class="btn">Start a Project</a>
+    </section>
+
+    <section id="services">
+        <h2>Our Core Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Custom Software</h3>
+                <p>Scalable back-end systems and robust enterprise architecture.</p>
+            </div>
+            <div class="card">
+                <h3>App Development</h3>
+                <p>Native and cross-platform mobile solutions optimized for user engagement.</p>
+            </div>
+            <div class="card">
+                <h3>Cloud & DevOps</h3>
+                <p>Seamless CI/CD integration, cloud migration, and infrastructure security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Connect With Us</h2>
+        <p>Ready to build? Let's discuss your requirements.</p>
+        <a href="mailto:aethercoreinteractive@gmail.com" style="color: var(--accent); font-size: 1.5rem;">aethercoreinteractive@gmail.com</a>
+    </section>
+
+</body>
+</html>
