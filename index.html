@@ -3,73 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore Interactive | Global Operations</title>
+    <title>Aethercore | Enterprise Portal</title>
     <style>
-        :root { --navy: #000a1f; --gold: #b8860b; --white: #ffffff; --light: #f4f4f4; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; background: var(--light); color: var(--navy); margin: 0; }
+        :root { --n: #000a1f; --g: #b8860b; --w: #ffffff; --s: #f4f4f4; }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: var(--s); color: var(--n); margin: 0; }
 
-        /* Header */
-        header { background: var(--navy); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
-        .logo { height: 35px; }
+        /* Unique Section Styles */
+        .mod { padding: 40px 20px; min-height: 80vh; display: flex; flex-direction: column; border-bottom: 2px solid #ddd; }
+        
+        /* Section 1: Dark, Command-focused */
+        .hero-mod { background: var(--n); color: var(--w); justify-content: center; }
+        
+        /* Section 2: Clean, Form-focused */
+        .form-mod { background: var(--w); border-left: 10px solid var(--n); }
+        
+        /* Section 3: Dark-grid, Portfolio-focused */
+        .port-mod { background: #1a2a4a; color: var(--w); }
+        .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        
+        /* Section 4: Gold-accent, Contact-focused */
+        .contact-mod { background: var(--g); color: var(--n); text-align: center; justify-content: center; }
 
-        /* Sections */
-        section { padding: 30px 20px; background: var(--white); margin-bottom: 15px; }
-        h2 { font-size: 1.2rem; border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 20px; color: var(--navy); }
-
-        /* 1. Project Submission */
-        .input-group { display: flex; flex-direction: column; gap: 10px; }
-        textarea, input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; }
-        button { background: var(--navy); color: white; padding: 15px; border: none; border-radius: 6px; font-weight: bold; }
-
-        /* 2. Portfolio Grid */
-        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .p-card { border: 1px solid #eee; padding: 10px; text-align: center; font-size: 0.8rem; }
-
-        /* 3. Footer/Contact */
-        .contact-box { background: var(--navy); color: white; text-align: center; padding: 40px 20px; }
+        button { background: var(--g); padding: 15px; border: none; border-radius: 4px; font-weight: bold; }
+        input, textarea { padding: 12px; margin: 10px 0; border: 1px solid #ccc; width: 100%; }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="Aethercore Logo.png" class="logo">
-        <span style="color: white; font-weight: bold;">PORTAL</span>
-    </header>
+    <section class="mod hero-mod">
+        <h1 style="font-size: 2.5rem;">Aethercore <br>Interactive</h1>
+        <p>500 years of combined architectural experience, now accessible via mobile.</p>
+    </section>
 
-    <!-- SECTION 1: Project Intake -->
-    <section>
-        <h2>Project Submission</h2>
-        <div class="input-group">
-            <input type="text" placeholder="Project Name / Client ID">
-            <textarea placeholder="Describe your requirements for our engineering team..." rows="4"></textarea>
-            <button onclick="alert('Proposal submitted to Aethercore Audit Team.')">SUBMIT SPECIFICATIONS</button>
+    <section class="mod form-mod">
+        <h2>Incorporate Your Project</h2>
+        <input type="text" placeholder="Enterprise Name">
+        <textarea placeholder="Technical Scope/Requirements" rows="5"></textarea>
+        <button>INITIATE SECURITY AUDIT</button>
+    </section>
+
+    <section class="mod port-mod">
+        <h2>Operational Portfolio</h2>
+        <div class="p-grid">
+            <div style="border: 1px solid #fff; padding: 10px;">Cloud/ERP Core</div>
+            <div style="border: 1px solid #fff; padding: 10px;">AI Logistics</div>
+            <div style="border: 1px solid #fff; padding: 10px;">FinTech Core</div>
+            <div style="border: 1px solid #fff; padding: 10px;">Security Ops</div>
         </div>
     </section>
 
-    <!-- SECTION 2: Our Work -->
-    <section>
-        <h2>Enterprise Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="p-card">Project: Page Forge<br><b>[Link]</b></div>
-            <div class="p-card">Volleyball AI Engine<br><b>[Link]</b></div>
-            <div class="p-card">Automotive Physics<br><b>[Link]</b></div>
-            <div class="p-card">Enterprise ERP v1<br><b>[Link]</b></div>
-        </div>
+    <section class="mod contact-mod">
+        <h2>Direct Line</h2>
+        <p style="font-weight: bold; font-size: 1.2rem;">aethercoreinteractive@gmail.com</p>
+        <p style="font-size: 0.8rem;">Secure, encrypted channel for 40cr-tier project inquiries.</p>
     </section>
-
-    <!-- SECTION 3: Additional Research/Sections -->
-    <section>
-        <h2>Corporate Governance</h2>
-        <p style="font-size: 0.9rem;">View our technical compliance, SLA terms, and security standards for 40cr-tier project deployment.</p>
-    </section>
-
-    <!-- SECTION 4: Contact -->
-    <div class="contact-box">
-        <h3>Contact Lead Architect</h3>
-        <p style="margin: 15px 0; font-size: 1.1rem; color: var(--gold);">aethercoreinteractive@gmail.com</p>
-        <p style="font-size: 0.7rem; opacity: 0.7;">HQ: Digital Infrastructure Division</p>
-    </div>
 
 </body>
 </html>
