@@ -3,70 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore Interactive | Enterprise Mobile</title>
+    <title>Aethercore Interactive | Global Operations</title>
     <style>
-        /* 500-Year Optimized Architecture */
-        :root {
-            --ui-blue: #000a1f;
-            --ui-gold: #b8860b;
-            --ui-white: #ffffff;
-            --ui-grey: #f0f2f5;
-        }
-
+        :root { --navy: #000a1f; --gold: #b8860b; --white: #ffffff; --light: #f4f4f4; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--ui-grey); margin: 0; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; background: var(--light); color: var(--navy); margin: 0; }
 
-        /* Fixed App Shell */
-        .app-header { background: var(--ui-blue); color: var(--ui-white); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        .logo-small { height: 30px; }
-        
-        /* The Enterprise Scroll-Zone */
-        .content-area { padding: 20px; }
-        
-        /* Asymmetric Service Cards */
-        .service-list { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .card { background: var(--ui-white); padding: 20px; border-radius: 12px; border-left: 5px solid var(--ui-gold); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        
-        /* Institutional Contact Button */
-        .cta-fixed { position: fixed; bottom: 20px; left: 20px; right: 20px; background: var(--ui-gold); color: var(--ui-blue); text-align: center; padding: 18px; border-radius: 8px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4); }
+        /* Header */
+        header { background: var(--navy); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
+        .logo { height: 35px; }
 
-        h1 { font-size: 1.5rem; margin-bottom: 20px; color: var(--ui-blue); }
-        h3 { margin-bottom: 8px; }
+        /* Sections */
+        section { padding: 30px 20px; background: var(--white); margin-bottom: 15px; }
+        h2 { font-size: 1.2rem; border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 20px; color: var(--navy); }
+
+        /* 1. Project Submission */
+        .input-group { display: flex; flex-direction: column; gap: 10px; }
+        textarea, input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; }
+        button { background: var(--navy); color: white; padding: 15px; border: none; border-radius: 6px; font-weight: bold; }
+
+        /* 2. Portfolio Grid */
+        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .p-card { border: 1px solid #eee; padding: 10px; text-align: center; font-size: 0.8rem; }
+
+        /* 3. Footer/Contact */
+        .contact-box { background: var(--navy); color: white; text-align: center; padding: 40px 20px; }
     </style>
 </head>
 <body>
 
-    <header class="app-header">
-        <img src="Aethercore Logo.png" class="logo-small" alt="Aethercore">
-        <div style="font-weight: 700; font-size: 0.8rem;">ENTERPRISE PORTAL</div>
+    <header>
+        <img src="Aethercore Logo.png" class="logo">
+        <span style="color: white; font-weight: bold;">PORTAL</span>
     </header>
 
-    <main class="content-area">
-        <h1>Institutional Engineering</h1>
-        
-        <div class="service-list">
-            <div class="card">
-                <h3>Digital Transformation</h3>
-                <p>Scaling legacy operations into high-concurrency cloud environments.</p>
-            </div>
-            <div class="card">
-                <h3>AI & Analytics</h3>
-                <p>Predictive modeling for 50cr+ market operations.</p>
-            </div>
-            <div class="card">
-                <h3>Security Ops</h3>
-                <p>Zero-trust protocol enforcement for enterprise data.</p>
-            </div>
-            <div class="card">
-                <h3>Custom ERP</h3>
-                <p>Modular business resource planning for global supply chains.</p>
-            </div>
+    <!-- SECTION 1: Project Intake -->
+    <section>
+        <h2>Project Submission</h2>
+        <div class="input-group">
+            <input type="text" placeholder="Project Name / Client ID">
+            <textarea placeholder="Describe your requirements for our engineering team..." rows="4"></textarea>
+            <button onclick="alert('Proposal submitted to Aethercore Audit Team.')">SUBMIT SPECIFICATIONS</button>
         </div>
+    </section>
 
-        <div style="height: 100px;"></div> <!-- Bottom spacing -->
-    </main>
+    <!-- SECTION 2: Our Work -->
+    <section>
+        <h2>Enterprise Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="p-card">Project: Page Forge<br><b>[Link]</b></div>
+            <div class="p-card">Volleyball AI Engine<br><b>[Link]</b></div>
+            <div class="p-card">Automotive Physics<br><b>[Link]</b></div>
+            <div class="p-card">Enterprise ERP v1<br><b>[Link]</b></div>
+        </div>
+    </section>
 
-    <a href="mailto:aethercoreinteractive@gmail.com" class="cta-fixed">SECURE PARTNERSHIP INQUIRY</a>
+    <!-- SECTION 3: Additional Research/Sections -->
+    <section>
+        <h2>Corporate Governance</h2>
+        <p style="font-size: 0.9rem;">View our technical compliance, SLA terms, and security standards for 40cr-tier project deployment.</p>
+    </section>
+
+    <!-- SECTION 4: Contact -->
+    <div class="contact-box">
+        <h3>Contact Lead Architect</h3>
+        <p style="margin: 15px 0; font-size: 1.1rem; color: var(--gold);">aethercoreinteractive@gmail.com</p>
+        <p style="font-size: 0.7rem; opacity: 0.7;">HQ: Digital Infrastructure Division</p>
+    </div>
 
 </body>
 </html>
