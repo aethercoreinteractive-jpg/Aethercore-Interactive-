@@ -37,26 +37,31 @@
             const query = filter.toLowerCase();
             const searchTerms = query.split(/\s+/).filter(t => t.length > 2);
             
-            // 1. Process all apps globally to assign scores
+            // 1. Assign global scores for ranking logic
             let rankedApps = aetherCoreApps.map(app => {
                 let score = 0;
+                const title = app.title.toLowerCase();
                 const target = (app.category + " " + app.title + " " + app.description).toLowerCase();
                 
                 if (query.length === 0) {
                     score = 1;
+                } else if (title === query) {
+                    score = 10; // Exact title match: Highest priority
+                } else if (title.includes(query)) {
+                    score = 8;  // Title contains query
                 } else if (target.includes(query)) {
-                    score = 5; // High priority for exact/full phrase match
+                    score = 5;  // Full phrase match elsewhere
                 } else if (searchTerms.some(term => target.includes(term.slice(0, 4)))) {
-                    score = 1; // Lower priority for partial/fuzzy match
+                    score = 1;  // Partial/Fuzzy match: Lowest priority
                 }
                 return { ...app, score };
             }).filter(app => app.score > 0);
 
-            // 2. Sort categories based on your data.js categoryOrder
-            const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
+            // 2. STRICT SORTING: Use categoryOrder from data.js
+            const sortedCategoryNames = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
-            sortedCategories.forEach(cat => {
-                // 3. Filter apps for this specific category and sort by global score
+            sortedCategoryNames.forEach(cat => {
+                // 3. Filter apps for this category and rank by their global score
                 const apps = rankedApps
                     .filter(a => a.category === cat)
                     .sort((a, b) => b.score - a.score);
