@@ -2,46 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aethercore Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="data.js"></script>
-    <style>
-        .bottom-nav { border-top: 1px solid #e5e7eb; background: #fff; }
-        .app-card img { border-radius: 16px; }
-    </style>
 </head>
-<body class="bg-white pb-20">
-
-    <header class="sticky top-0 bg-white p-4 z-50 shadow-sm">
-        <div class="bg-gray-100 rounded-full px-4 py-3 flex items-center text-gray-500">
-            <span class="mr-2">🔍</span> Search apps & games
-        </div>
-    </header>
-
-    <main id="store-content" class="p-4 space-y-8"></main>
-
-    <nav class="fixed bottom-0 w-full bg-white border-t p-3 flex justify-around text-xs font-bold text-gray-500">
-        <div class="text-green-700">Games</div>
-        <div>Apps</div>
-        <div>Offers</div>
-    </nav>
+<body class="bg-white pb-10">
+    <header class="p-6 font-black text-2xl tracking-tighter">Aethercore Play</header>
+    <main id="store-content" class="space-y-10"></main>
 
     <script>
         const content = document.getElementById('store-content');
-        // Grouping by category automatically
-        const categories = [...new Set(aetherCoreApps.map(a => a.category || "General"))];
         
+        // 1. Get unique categories and sort them based on categoryOrder
+        const categories = [...new Set(aetherCoreApps.map(a => a.category || "General"))]
+            .sort((a, b) => (categoryOrder[a] || 99) - (categoryOrder[b] || 99));
+
         categories.forEach(cat => {
-            const section = document.createElement('div');
-            section.innerHTML = `<h2 class="text-lg font-bold mb-4">${cat}</h2><div class="flex gap-4 overflow-x-auto pb-4"></div>`;
-            const row = section.querySelector('.flex');
+            const section = document.createElement('section');
+            section.innerHTML = `<h2 class="px-6 text-xl font-bold mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-4"></div>`;
             
-            aetherCoreApps.filter(a => (a.category || "General") === cat).forEach(app => {
+            // 2. Filter apps for this category and sort them by app.sort
+            const appsInCategory = aetherCoreApps
+                .filter(a => (a.category || "General") === cat)
+                .sort((a, b) => a.sort - b.sort);
+
+            const row = section.querySelector('.flex');
+            appsInCategory.forEach(app => {
                 row.innerHTML += `
-                    <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[100px] app-card">
-                        <img src="${app.logo}" class="w-24 h-24 object-cover shadow-sm">
-                        <h3 class="mt-2 text-xs font-medium truncate w-24">${app.title}</h3>
+                    <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[100px] cursor-pointer">
+                        <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-md object-cover">
+                        <h3 class="mt-2 text-xs font-bold text-slate-800 truncate w-24">${app.title}</h3>
                     </div>
                 `;
             });
