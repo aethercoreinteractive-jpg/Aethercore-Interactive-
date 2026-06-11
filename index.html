@@ -34,17 +34,30 @@
 
         function render(filter = "") {
             content.innerHTML = "";
-            const searchTerms = filter.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+            const query = filter.toLowerCase();
             
-            // Sorted based on categoryOrder from data.js
+            // Fixed Category Sort Order
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
-                const apps = aetherCoreApps.filter(a => {
-                    const target = (a.category + " " + a.title + " " + a.description).toLowerCase();
-                    return (searchTerms.length === 0 || searchTerms.some(term => target.includes(term.slice(0, 4)))) && a.category === cat;
-                });
-                
+                // Get apps and assign scores
+                let apps = aetherCoreApps.filter(a => a.category === cat).map(app => {
+                    let score = 0;
+                    const fullText = (app.title + " " + app.category + " " + app.description).toLowerCase();
+                    
+                    if (filter.length === 0) {
+                        score = 1; // Show all if no filter
+                    } else if (fullText.includes(query)) {
+                        score = 5; // Full word match gets higher priority
+                    } else if (query.split('').every(char => fullText.includes(char))) {
+                        score = 1; // Fuzzy match gets lower priority
+                    }
+                    
+                    return { ...app, score };
+                })
+                .filter(app => app.score > 0)
+                .sort((a, b) => b.score - a.score); // Highest score (Exact matches) first
+
                 if (apps.length > 0) {
                     const section = document.createElement('section');
                     section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">${cat}</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
@@ -64,8 +77,5 @@
                 }
             });
         }
-        searchInput.addEventListener('input', (e) => render(e.target.value));
-        render();
-    </script>
-</body>
-</html>
+        searchInput.
+            
