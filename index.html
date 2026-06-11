@@ -35,15 +35,14 @@
 
         function render(filter = "") {
             content.innerHTML = "";
-            const query = filter.toLowerCase().replace(/\s/g, '');
+            const searchTerms = filter.toLowerCase().split(/\s+/).filter(t => t.length > 2);
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
                 const apps = aetherCoreApps.filter(a => {
-                    const target = (a.category + a.title + a.description).toLowerCase();
-                    // Check if every character of the search query exists in the target string
-                    // This allows for "Actio" to match "Actions"
-                    return query.split('').every(char => target.includes(char)) && a.category === cat;
+                    const target = (a.category + " " + a.title + " " + a.description).toLowerCase();
+                    // If no search terms, show all; otherwise, match any valid part of the input
+                    return searchTerms.length === 0 || searchTerms.some(term => target.includes(term.slice(0, 4))) && a.category === cat;
                 });
                 
                 if (apps.length > 0) {
