@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethercore | Interactive Ecosystem</title>
+    <title>Aethercore | Interactive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0B0B0C; color: #FFFFFF; }
-        .glass-nav { background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .app-item { transition: transform 0.2s ease; }
-        .app-item:active { transform: scale(0.95); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #121417; color: #E2E8F0; }
+        .surface { background-color: #1E2126; border: 1px solid #2D3238; }
+        .glass-nav { background: rgba(18, 20, 23, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid #2D3238; }
+        .text-header { color: #F8FAFC; }
+        .text-muted { color: #94A3B8; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -18,14 +19,14 @@
 
     <header class="glass-nav sticky top-0 z-50 px-6 pt-6 pb-4">
         <div class="flex items-center gap-3 mb-5">
-            <img src="Aethercore Logo.png" class="w-9 h-9 rounded-full border border-gray-700 object-cover">
-            <h1 class="text-lg font-bold tracking-tight">Aethercore <span class="text-blue-500">Interactive</span></h1>
+            <img src="Aethercore Logo.png" class="w-10 h-10 rounded-full border border-gray-600 object-cover shadow-lg">
+            <h1 class="text-xl font-bold text-header tracking-tight">Aethercore <span class="text-blue-400">Interactive</span></h1>
         </div>
-        <input type="text" id="searchInput" placeholder="Search ecosystem..." 
-               class="w-full bg-[#1A1A1A] rounded-xl px-4 py-3 text-sm outline-none border border-gray-800 focus:border-blue-600 transition-all">
+        <input type="text" id="searchInput" placeholder="Search apps, games, tools..." 
+               class="w-full bg-[#262A31] text-white rounded-xl px-5 py-3.5 text-sm outline-none border border-gray-600 focus:border-blue-500 transition-all placeholder:text-gray-500">
     </header>
 
-    <main id="store-content" class="py-4"></main>
+    <main id="store-content" class="py-6 space-y-12"></main>
 
     <script src="data.js"></script>
     <script>
@@ -43,17 +44,16 @@
                 
                 if (apps.length > 0) {
                     const section = document.createElement('section');
-                    section.className = "mb-10";
-                    section.innerHTML = `<h2 class="px-6 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto hide-scrollbar"></div>`;
+                    section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">${cat}</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
                     
                     const row = section.querySelector('.flex');
                     apps.forEach(app => {
                         row.innerHTML += `
-                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[80px] flex flex-col items-center app-item cursor-pointer">
-                                <div class="w-16 h-16 rounded-[20px] shadow-2xl overflow-hidden border border-gray-800 bg-[#1A1A1A]">
+                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[85px] flex flex-col items-center cursor-pointer group">
+                                <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center shadow-2xl overflow-hidden">
                                     <img src="${app.logo}" class="w-full h-full object-cover">
                                 </div>
-                                <span class="mt-2 text-[11px] font-medium text-center text-gray-300 leading-tight w-20 truncate">${app.title}</span>
+                                <span class="mt-3 text-[12px] font-semibold text-gray-200 text-center leading-tight w-24 truncate">${app.title}</span>
                             </div>
                         `;
                     });
