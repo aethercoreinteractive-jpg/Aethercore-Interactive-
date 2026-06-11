@@ -2,27 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aethercore Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aethercore</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="data.js"></script>
+    <style>
+        body { -webkit-tap-highlight-color: transparent; }
+    </style>
 </head>
-<body class="bg-white text-slate-900">
-    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b px-6 py-4 flex items-center z-50">
-        <img src="Aethercore Logo.png" class="h-8 mr-4">
-        <h1 class="text-xl font-bold">Aethercore Interactive</h1>
-    </nav>
+<body class="bg-gray-50 pb-20">
+    <header class="sticky top-0 bg-white/90 backdrop-blur-lg border-b p-4 flex items-center z-50">
+        <img src="Aethercore Logo.png" class="h-8 w-8 mr-3">
+        <h1 class="text-lg font-bold tracking-tight">Aethercore Interactive</h1>
+    </header>
 
-    <main class="max-w-6xl mx-auto p-6">
-        <div id="grid" class="grid grid-cols-2 md:grid-cols-5 gap-6"></div>
+    <main class="p-4">
+        <div id="grid" class="grid grid-cols-2 gap-4"></div>
     </main>
 
     <script>
         const grid = document.getElementById('grid');
         aetherCoreApps.forEach(app => {
             grid.innerHTML += `
-                <div onclick="viewApp(${app.id})" class="group cursor-pointer">
-                    <img src="${app.logo}" class="rounded-3xl shadow-lg group-hover:scale-105 transition-all duration-300">
-                    <h3 class="mt-3 font-semibold text-sm truncate">${app.title}</h3>
+                <div onclick="viewApp(${app.id})" class="active:scale-95 transition-transform bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
+                    <img src="${app.logo}" class="w-full aspect-square rounded-xl object-cover mb-2">
+                    <h3 class="text-xs font-bold text-gray-800 line-clamp-2">${app.title}</h3>
                 </div>
             `;
         });
