@@ -1,8 +1,8 @@
 // Define your section order here (Lower number = Higher up)
 const categoryOrder = {
-    "Editors Choice": 1,
+    "Editors Choice": 3,
     "Games": 2,
-    "Apps": 3,
+    "Apps": 1,
     "General": 4
 };
 
