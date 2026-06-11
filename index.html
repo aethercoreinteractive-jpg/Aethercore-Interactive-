@@ -2,38 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethercore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aethercore Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="data.js"></script>
-    <style>
-        body { -webkit-tap-highlight-color: transparent; }
-    </style>
 </head>
-<body class="bg-gray-50 pb-20">
-    <header class="sticky top-0 bg-white/90 backdrop-blur-lg border-b p-4 flex items-center z-50">
-        <img src="Aethercore Logo.png" class="h-8 w-8 mr-3">
-        <h1 class="text-lg font-bold tracking-tight">Aethercore Interactive</h1>
+<body class="bg-white">
+    <header class="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-center z-50">
+        <img src="Aethercore Logo.png" class="h-8 w-8 mr-4">
+        <span class="text-xl font-bold text-gray-800">Aethercore Play</span>
     </header>
 
-    <main class="p-4">
-        <div id="grid" class="grid grid-cols-2 gap-4"></div>
+    <main class="p-4 space-y-8">
+        <section>
+            <h2 class="text-lg font-bold mb-4">Recommended for you</h2>
+            <div id="grid" class="grid grid-cols-2 gap-4"></div>
+        </section>
     </main>
 
     <script>
         const grid = document.getElementById('grid');
         aetherCoreApps.forEach(app => {
             grid.innerHTML += `
-                <div onclick="viewApp(${app.id})" class="active:scale-95 transition-transform bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
-                    <img src="${app.logo}" class="w-full aspect-square rounded-xl object-cover mb-2">
-                    <h3 class="text-xs font-bold text-gray-800 line-clamp-2">${app.title}</h3>
+                <div onclick="localStorage.setItem('selectedApp', ${app.id}); window.location.href='app.html';" class="active:opacity-70 transition">
+                    <img src="${app.logo}" class="w-full aspect-square rounded-2xl shadow-sm border border-gray-100 object-cover">
+                    <h3 class="mt-2 text-sm font-semibold text-gray-900 truncate">${app.title}</h3>
+                    <p class="text-xs text-gray-500">Aethercore</p>
                 </div>
             `;
         });
-        function viewApp(id) {
-            localStorage.setItem('selectedApp', id);
-            window.location.href = 'app.html';
-        }
     </script>
 </body>
 </html>
