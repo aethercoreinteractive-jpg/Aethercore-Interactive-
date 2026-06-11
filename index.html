@@ -2,46 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aethercore Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="data.js"></script>
 </head>
-<body class="bg-white pb-10">
-    <header class="p-6 font-black text-2xl tracking-tighter">Aethercore Play</header>
-    
-    <!-- Search Bar -->
-    <div class="px-6 mb-6">
-        <input type="text" id="searchInput" placeholder="Search for apps & games" 
-               class="w-full bg-gray-100 rounded-full px-5 py-3 outline-none focus:ring-2 focus:ring-blue-500">
-    </div>
+<body class="bg-white">
 
-    <main id="store-content" class="space-y-10"></main>
+    <header class="sticky top-0 bg-white z-50 p-4 shadow-sm">
+        <div class="bg-gray-100 rounded-full px-5 py-3 flex items-center">
+            <span class="mr-3">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search for apps & games" 
+                   class="bg-transparent w-full outline-none text-sm">
+        </div>
+    </header>
+
+    <main id="store-content" class="py-4 space-y-8"></main>
 
     <script>
         const content = document.getElementById('store-content');
         const searchInput = document.getElementById('searchInput');
 
         function render(filter = "") {
-            content.innerHTML = ""; // Clear current view
-            
+            content.innerHTML = "";
+            const query = filter.toLowerCase();
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
+                // Search now checks both Title AND Description
                 const appsInCategory = aetherCoreApps.filter(a => 
                     a.category === cat && 
-                    a.title.toLowerCase().includes(filter.toLowerCase())
+                    (a.title.toLowerCase().includes(query) || a.description.toLowerCase().includes(query))
                 );
                 
                 if (appsInCategory.length > 0) {
                     const section = document.createElement('section');
-                    section.innerHTML = `<h2 class="px-6 text-xl font-bold mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-4"></div>`;
+                    section.innerHTML = `<h2 class="px-6 text-base font-bold text-gray-900 mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-2 scrollbar-hide"></div>`;
                     
                     const row = section.querySelector('.flex');
                     appsInCategory.forEach(app => {
                         row.innerHTML += `
-                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[100px] cursor-pointer">
-                                <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-md object-cover">
-                                <h3 class="mt-2 text-xs font-bold text-slate-800 truncate w-24">${app.title}</h3>
+                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[96px] cursor-pointer">
+                                <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-sm border border-gray-100 object-cover">
+                                <h3 class="mt-2 text-xs font-medium text-gray-800 truncate w-24">${app.title}</h3>
                             </div>
                         `;
                     });
@@ -50,11 +53,8 @@
             });
         }
 
-        // Listener for search input
         searchInput.addEventListener('input', (e) => render(e.target.value));
-        
-        // Initial render
-        render();
+        render(); // Initial load
     </script>
 </body>
 </html>
