@@ -37,26 +37,29 @@
             const query = filter.toLowerCase();
             const searchTerms = query.split(/\s+/).filter(t => t.length > 2);
             
-            // Sorted based on categoryOrder from data.js
+            // 1. Process all apps globally to assign scores
+            let rankedApps = aetherCoreApps.map(app => {
+                let score = 0;
+                const target = (app.category + " " + app.title + " " + app.description).toLowerCase();
+                
+                if (query.length === 0) {
+                    score = 1;
+                } else if (target.includes(query)) {
+                    score = 5; // High priority for exact/full phrase match
+                } else if (searchTerms.some(term => target.includes(term.slice(0, 4)))) {
+                    score = 1; // Lower priority for partial/fuzzy match
+                }
+                return { ...app, score };
+            }).filter(app => app.score > 0);
+
+            // 2. Sort categories based on your data.js categoryOrder
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
-                // Score and rank apps: Full word match (5) > Partial match (1)
-                let apps = aetherCoreApps.filter(a => a.category === cat).map(app => {
-                    let score = 0;
-                    const target = (app.category + " " + app.title + " " + app.description).toLowerCase();
-                    
-                    if (query.length === 0) {
-                        score = 1;
-                    } else if (target.includes(query)) {
-                        score = 5; // Exact/Full phrase match
-                    } else if (searchTerms.length > 0 && searchTerms.some(term => target.includes(term.slice(0, 4)))) {
-                        score = 1; // Partial/Fuzzy match
-                    }
-                    return { ...app, score };
-                })
-                .filter(app => app.score > 0)
-                .sort((a, b) => b.score - a.score);
+                // 3. Filter apps for this specific category and sort by global score
+                const apps = rankedApps
+                    .filter(a => a.category === cat)
+                    .sort((a, b) => b.score - a.score);
                 
                 if (apps.length > 0) {
                     const section = document.createElement('section');
