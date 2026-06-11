@@ -34,47 +34,45 @@
 
         function render(filter = "") {
             content.innerHTML = "";
-            const query = filter.toLowerCase();
+            const query = filter.toLowerCase().trim();
             const searchTerms = query.split(/\s+/).filter(t => t.length > 2);
-            
-            // 1. Process all apps globally with scoring logic
-            let rankedApps = aetherCoreApps.map(app => {
+
+            // 1. Calculate Scores for every app
+            const scoredApps = aetherCoreApps.map(app => {
                 let score = 0;
                 const title = app.title.toLowerCase();
-                const target = (app.category + " " + app.title + " " + app.description).toLowerCase();
-                
-                if (query.length === 0) {
-                    score = 1;
+                const fullText = (app.category + " " + app.title + " " + app.description).toLowerCase();
+
+                if (query === "") {
+                    score = 1; // Default state: show all
                 } else if (title === query) {
-                    score = 10;
+                    score = 100; // Exact title match: Highest priority
                 } else if (title.includes(query)) {
-                    score = 8;
-                } else if (target.includes(query)) {
-                    score = 5;
-                } else if (searchTerms.some(term => target.includes(term.slice(0, 4)))) {
-                    score = 1;
+                    score = 50; // Title contains query
+                } else if (fullText.includes(query)) {
+                    score = 25; // General match found
+                } else if (searchTerms.some(term => fullText.includes(term.slice(0, 4)))) {
+                    score = 10; // Fuzzy/Partial match
                 }
                 return { ...app, score };
             }).filter(app => app.score > 0);
 
-            // 2. STRICT SORTING: Ensure categoryOrder is defined and sorted numerically
-            // We ensure we compare values as numbers, not strings
-            const sortedCategoryNames = Object.keys(categoryOrder).sort((a, b) => {
-                return (categoryOrder[a] || 99) - (categoryOrder[b] || 99);
-            });
+            // 2. Strict Category Ordering (from data.js)
+            const sortedCategoryNames = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
-            sortedCategoryNames.forEach(cat => {
-                // 3. Rank apps within this category by their pre-calculated score
-                const apps = rankedApps
-                    .filter(a => a.category === cat)
+            // 3. Render
+            sortedCategoryNames.forEach(catName => {
+                // Get only apps for this category and sort them by their scores
+                const categoryApps = scoredApps
+                    .filter(app => app.category === catName)
                     .sort((a, b) => b.score - a.score);
-                
-                if (apps.length > 0) {
+
+                if (categoryApps.length > 0) {
                     const section = document.createElement('section');
-                    section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">${cat}</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
+                    section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">${catName}</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
                     
                     const row = section.querySelector('.flex');
-                    apps.forEach(app => {
+                    categoryApps.forEach(app => {
                         row.innerHTML += `
                             <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[85px] flex flex-col items-center cursor-pointer group">
                                 <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center shadow-2xl overflow-hidden">
@@ -88,6 +86,7 @@
                 }
             });
         }
+
         searchInput.addEventListener('input', (e) => render(e.target.value));
         render();
     </script>
