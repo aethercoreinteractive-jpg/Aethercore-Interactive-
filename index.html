@@ -9,15 +9,24 @@
 </head>
 <body class="bg-white">
 
-    <header class="sticky top-0 bg-white z-50 p-4 shadow-sm">
-        <div class="bg-gray-100 rounded-full px-5 py-3 flex items-center">
-            <span class="mr-3">🔍</span>
-            <input type="text" id="searchInput" placeholder="Search for apps & games" 
-                   class="bg-transparent w-full outline-none text-sm">
+    <!-- Premium Header -->
+    <header class="sticky top-0 bg-white z-50 pt-4 pb-2 px-6 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+            <!-- Company Logo -->
+            <img src="Aethercore Logo.png" alt="Logo" class="w-10 h-10 object-contain">
+            <h1 class="text-xl font-bold tracking-tight text-gray-900">Aethercore Interactive</h1>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="bg-gray-100 rounded-full px-5 py-3 flex items-center transition-all focus-within:ring-2 focus-within:ring-green-600">
+            <span class="mr-3 text-gray-500">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search apps & games" 
+                   class="bg-transparent w-full outline-none text-sm placeholder:text-gray-500">
         </div>
     </header>
 
-    <main id="store-content" class="py-4 space-y-8"></main>
+    <!-- Content -->
+    <main id="store-content" class="py-6 space-y-10"></main>
 
     <script>
         const content = document.getElementById('store-content');
@@ -29,7 +38,6 @@
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
-                // Search now checks both Title AND Description
                 const appsInCategory = aetherCoreApps.filter(a => 
                     a.category === cat && 
                     (a.title.toLowerCase().includes(query) || a.description.toLowerCase().includes(query))
@@ -37,13 +45,13 @@
                 
                 if (appsInCategory.length > 0) {
                     const section = document.createElement('section');
-                    section.innerHTML = `<h2 class="px-6 text-base font-bold text-gray-900 mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-2 scrollbar-hide"></div>`;
+                    section.innerHTML = `<h2 class="px-6 text-base font-bold text-gray-900 mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-2"></div>`;
                     
                     const row = section.querySelector('.flex');
                     appsInCategory.forEach(app => {
                         row.innerHTML += `
-                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[96px] cursor-pointer">
-                                <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-sm border border-gray-100 object-cover">
+                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[96px] cursor-pointer group">
+                                <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-sm border border-gray-100 object-cover transition-transform group-active:scale-95">
                                 <h3 class="mt-2 text-xs font-medium text-gray-800 truncate w-24">${app.title}</h3>
                             </div>
                         `;
@@ -54,7 +62,7 @@
         }
 
         searchInput.addEventListener('input', (e) => render(e.target.value));
-        render(); // Initial load
+        render(); 
     </script>
 </body>
 </html>
