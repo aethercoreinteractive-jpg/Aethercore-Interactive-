@@ -3,38 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethercore | Interactive Ecosystem</title>
+    <title>Aethercore Interactive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        .glass-header { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.85); }
-        .app-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .app-card:hover { transform: translateY(-8px); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="bg-[#F8F9FA]">
+<body class="bg-white text-gray-900">
 
-    <header class="glass-header sticky top-0 z-50 border-b border-gray-200 px-6 py-4">
-        <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-                <img src="Aethercore Logo.png" class="w-10 h-10 object-contain">
-                <div>
-                    <h1 class="text-sm font-bold tracking-widest uppercase text-gray-400">Aethercore</h1>
-                    <p class="text-lg font-extrabold text-gray-900 leading-none">Interactive</p>
-                </div>
-            </div>
-            <div class="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-sm">AI</div>
+    <header class="sticky top-0 bg-white/95 backdrop-blur-sm z-50 px-6 pt-6 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-3 mb-5">
+            <img src="Aethercore Logo.png" class="w-8 h-8 object-contain">
+            <h1 class="text-lg font-bold tracking-tight">Aethercore Interactive</h1>
         </div>
-        
-        <div class="bg-white border border-gray-200 rounded-2xl px-5 py-3 flex items-center shadow-sm">
-            <span class="mr-3 opacity-50">🔍</span>
-            <input type="text" id="searchInput" placeholder="Discover professional tools..." 
-                   class="bg-transparent w-full outline-none text-sm text-gray-800 placeholder:text-gray-400">
-        </div>
+        <input type="text" id="searchInput" placeholder="Search ecosystem..." 
+               class="w-full bg-gray-50 rounded-xl px-4 py-2.5 text-sm outline-none border border-gray-200 focus:border-gray-400 transition-all">
     </header>
 
-    <main id="store-content" class="py-8 space-y-12"></main>
+    <main id="store-content" class="py-4"></main>
 
     <script src="data.js"></script>
     <script>
@@ -52,16 +40,17 @@
                 
                 if (apps.length > 0) {
                     const section = document.createElement('section');
-                    section.innerHTML = `<h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] text-gray-400 mb-6">${cat}</h2><div class="flex gap-6 px-6 overflow-x-auto pb-4 scrollbar-hide"></div>`;
+                    section.className = "mb-10";
+                    section.innerHTML = `<h2 class="px-6 text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto hide-scrollbar"></div>`;
                     
                     const row = section.querySelector('.flex');
                     apps.forEach(app => {
                         row.innerHTML += `
-                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[120px] app-card cursor-pointer">
-                                <div class="w-28 h-28 rounded-3xl shadow-xl border border-gray-100 overflow-hidden bg-white">
+                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[80px] flex flex-col items-center cursor-pointer group">
+                                <div class="w-16 h-16 rounded-[18px] shadow-sm overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow">
                                     <img src="${app.logo}" class="w-full h-full object-cover">
                                 </div>
-                                <h3 class="mt-4 text-sm font-semibold text-gray-900 text-center">${app.title}</h3>
+                                <span class="mt-2 text-[11px] font-medium text-center text-gray-700 leading-tight w-20 truncate">${app.title}</span>
                             </div>
                         `;
                     });
