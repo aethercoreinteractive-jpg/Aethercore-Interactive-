@@ -39,13 +39,11 @@
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
-                // Updated logic: Search checks category name, app title, and description
-                const apps = aetherCoreApps.filter(a => 
-                    (a.category.toLowerCase().includes(query) || 
-                     a.title.toLowerCase().includes(query) || 
-                     a.description.toLowerCase().includes(query)) && 
-                    a.category === cat
-                );
+                // Updated fuzzy logic: Searches partial strings across category, title, and description
+                const apps = aetherCoreApps.filter(a => {
+                    const searchableText = (a.category + " " + a.title + " " + a.description).toLowerCase();
+                    return searchableText.includes(query) && a.category === cat;
+                });
                 
                 if (apps.length > 0) {
                     const section = document.createElement('section');
