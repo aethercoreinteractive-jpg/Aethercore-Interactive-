@@ -35,14 +35,15 @@
 
         function render(filter = "") {
             content.innerHTML = "";
-            const query = filter.toLowerCase();
+            // Split search into individual words and clean them (remove 's' at end)
+            const queryWords = filter.toLowerCase().split(/\s+/).filter(w => w.length > 0);
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
-                // Updated fuzzy logic: Searches partial strings across category, title, and description
                 const apps = aetherCoreApps.filter(a => {
-                    const searchableText = (a.category + " " + a.title + " " + a.description).toLowerCase();
-                    return searchableText.includes(query) && a.category === cat;
+                    const target = (a.category + " " + a.title + " " + a.description).toLowerCase();
+                    // Check if all query words exist in the target text
+                    return queryWords.every(word => target.includes(word) || target.includes(word.replace(/s$/, ''))) && a.category === cat;
                 });
                 
                 if (apps.length > 0) {
