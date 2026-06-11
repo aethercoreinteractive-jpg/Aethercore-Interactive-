@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="data.js"></script>
 </head>
-<body class="bg-white">
-    <button onclick="history.back()" class="fixed top-4 left-4 z-50 bg-black/50 p-2 rounded-full text-white">←</button>
+<body class="bg-white text-gray-900">
+    <button onclick="history.back()" class="fixed top-4 left-4 z-50 p-2 bg-white/80 rounded-full shadow-md">←</button>
 
-    <div class="relative">
-        <div class="swiper mySwiper w-full h-[40vh] bg-gray-100">
-            <div class="swiper-wrapper" id="slides"></div>
-        </div>
-        <div class="p-6">
-            <div class="flex items-center gap-4 -mt-12">
-                <img id="logo" class="w-20 h-20 rounded-2xl shadow-xl border-4 border-white">
-                <h1 id="title" class="text-xl font-black mt-8"></h1>
+    <div class="max-w-lg mx-auto">
+        <div class="p-6 pt-16 flex items-center gap-4">
+            <img id="logo" class="w-24 h-24 rounded-2xl shadow-lg border border-gray-100">
+            <div>
+                <h1 id="title" class="text-2xl font-bold"></h1>
+                <p class="text-green-600 font-semibold">Official Aethercore</p>
             </div>
-            <p id="desc" class="mt-6 text-gray-600 text-sm leading-relaxed"></p>
         </div>
-    </div>
 
-    <div class="fixed bottom-0 w-full p-4 bg-white border-t">
-        <a id="btn" href="#" class="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-bold text-lg active:bg-blue-700">INSTALL</a>
+        <div class="px-6 pb-6">
+            <a id="btn" href="#" class="block w-full bg-green-700 text-white text-center py-3 rounded-md font-bold text-lg shadow-md active:bg-green-800">Install</a>
+        </div>
+
+        <div class="px-6 py-4">
+            <div class="swiper mySwiper w-full h-64">
+                <div class="swiper-wrapper" id="slides"></div>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">About this app</h2>
+            <p id="desc" class="text-gray-600 text-sm leading-relaxed"></p>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -36,8 +44,8 @@
         document.getElementById('logo').src = app.logo;
         document.getElementById('btn').href = app.url;
         document.getElementById('slides').innerHTML = app.preview.map(p => 
-            `<div class="swiper-slide"><img src="${p}" class="w-full h-full object-cover"></div>`).join('');
-        new Swiper(".mySwiper", { slidesPerView: 1 });
+            `<div class="swiper-slide"><img src="${p}" class="h-full w-auto rounded-xl border border-gray-200"></div>`).join('');
+        new Swiper(".mySwiper", { slidesPerView: 1.2, spaceBetween: 15 });
     </script>
 </body>
 </html>
