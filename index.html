@@ -13,29 +13,31 @@
     <script>
         const content = document.getElementById('store-content');
         
-        // 1. Get unique categories and sort them based on categoryOrder
-        const categories = [...new Set(aetherCoreApps.map(a => a.category || "General"))]
-            .sort((a, b) => (categoryOrder[a] || 99) - (categoryOrder[b] || 99));
+        // Get sorted categories based on categoryOrder
+        const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
-        categories.forEach(cat => {
-            const section = document.createElement('section');
-            section.innerHTML = `<h2 class="px-6 text-xl font-bold mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-4"></div>`;
+        sortedCategories.forEach(cat => {
+            // Filter apps belonging to this category
+            const appsInCategory = aetherCoreApps.filter(a => a.category === cat);
             
-            // 2. Filter apps for this category and sort them by app.sort
-            const appsInCategory = aetherCoreApps
-                .filter(a => (a.category || "General") === cat)
-                .sort((a, b) => a.sort - b.sort);
-
-            const row = section.querySelector('.flex');
-            appsInCategory.forEach(app => {
-                row.innerHTML += `
-                    <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[100px] cursor-pointer">
-                        <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-md object-cover">
-                        <h3 class="mt-2 text-xs font-bold text-slate-800 truncate w-24">${app.title}</h3>
-                    </div>
-                `;
-            });
-            content.appendChild(section);
+            // Only render section if apps exist in this category
+            if (appsInCategory.length > 0) {
+                const section = document.createElement('section');
+                section.innerHTML = `<h2 class="px-6 text-xl font-bold mb-4">${cat}</h2><div class="flex gap-4 px-6 overflow-x-auto pb-4"></div>`;
+                
+                const row = section.querySelector('.flex');
+                
+                // Render apps within this section
+                appsInCategory.forEach(app => {
+                    row.innerHTML += `
+                        <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[100px] cursor-pointer">
+                            <img src="${app.logo}" class="w-24 h-24 rounded-2xl shadow-md object-cover">
+                            <h3 class="mt-2 text-xs font-bold text-slate-800 truncate w-24">${app.title}</h3>
+                        </div>
+                    `;
+                });
+                content.appendChild(section);
+            }
         });
     </script>
 </body>
