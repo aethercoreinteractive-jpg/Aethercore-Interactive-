@@ -11,7 +11,6 @@
         .surface { background-color: #1E2126; border: 1px solid #2D3238; }
         .glass-nav { background: rgba(18, 20, 23, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid #2D3238; }
         .text-header { color: #F8FAFC; }
-        .text-muted { color: #94A3B8; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -36,13 +35,14 @@
         function render(filter = "") {
             content.innerHTML = "";
             const searchTerms = filter.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+            
+            // Sorted based on categoryOrder from data.js
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategories.forEach(cat => {
                 const apps = aetherCoreApps.filter(a => {
                     const target = (a.category + " " + a.title + " " + a.description).toLowerCase();
-                    // If no search terms, show all; otherwise, match any valid part of the input
-                    return searchTerms.length === 0 || searchTerms.some(term => target.includes(term.slice(0, 4))) && a.category === cat;
+                    return (searchTerms.length === 0 || searchTerms.some(term => target.includes(term.slice(0, 4)))) && a.category === cat;
                 });
                 
                 if (apps.length > 0) {
