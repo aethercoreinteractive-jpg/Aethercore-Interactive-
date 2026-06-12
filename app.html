@@ -12,9 +12,11 @@
     <style>
         .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
         .lg-outer .lg-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
-        .lg-outer .lg-img-wrap { flex: 0 0 auto !important; width: 85% !important; max-width: 350px !important; aspect-ratio: 9/16 !important; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important; }
-        .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: contain !important; }
-        .lg-outer .lg-pager-outer { position: absolute !important; bottom: 15% !important; left: 0 !important; width: 100% !important; display: flex !important; justify-content: center !important; }
+        /* The 9:16 Window Frame */
+        .lg-outer .lg-img-wrap { flex: 0 0 auto !important; width: 80vw !important; max-width: 320px !important; aspect-ratio: 9/16 !important; border: 2px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important; background: #121417; }
+        .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+        /* Pager dots below frame */
+        .lg-outer .lg-pager-outer { position: relative !important; margin-top: 20px !important; width: 100% !important; display: flex !important; justify-content: center !important; }
     </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
