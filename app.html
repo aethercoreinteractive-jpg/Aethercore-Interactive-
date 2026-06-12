@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        .lg-outer .lg-inner { align-items: center; justify-content: center; }
-        .lg-outer .lg-img-wrap { aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; }
-        .lg-outer .lg-object { max-height: 70vh !important; width: auto !important; aspect-ratio: 9/16; object-fit: contain; }
-        .lg-pager-outer { position: relative !important; margin-top: 20px !important; }
+        .lg-outer .lg-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .lg-outer .lg-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+        .lg-outer .lg-img-wrap { width: 90% !important; max-width: 400px; aspect-ratio: 9/16; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+        .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: contain; }
+        .lg-outer .lg-pager-outer { position: static !important; order: 2; margin-top: 20px !important; }
     </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
