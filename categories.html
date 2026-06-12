@@ -26,7 +26,7 @@
 
     <main id="cat-content" class="py-6 px-6">
         <div id="category-list" class="grid grid-cols-2 gap-4"></div>
-        <div id="app-results" class="mt-10 space-y-8"></div>
+        <div id="app-results" class="mt-4 space-y-8"></div>
     </main>
 
     <footer class="fixed bottom-0 w-full glass-nav border-t border-gray-700 flex justify-around py-3 z-50">
@@ -55,11 +55,13 @@
         const appResults = document.getElementById('app-results');
 
         function renderCategories() {
+            catList.innerHTML = "";
+            appResults.innerHTML = "";
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
             
             sortedCategories.forEach(cat => {
                 const btn = document.createElement('div');
-                btn.className = "surface p-4 rounded-xl cursor-pointer hover:border-blue-500 transition-all text-center font-bold";
+                btn.className = "surface p-4 rounded-xl cursor-pointer hover:border-blue-500 transition-all text-center font-bold text-sm";
                 btn.innerText = cat;
                 btn.onclick = () => showCategoryApps(cat);
                 catList.appendChild(btn);
@@ -67,8 +69,8 @@
         }
 
         function showCategoryApps(catName) {
-            catList.innerHTML = `<button onclick="location.reload()" class="text-blue-400 text-sm font-bold mb-4">← Back to Categories</button>`;
-            appResults.innerHTML = `<h2 class="text-xl font-bold text-white">${catName}</h2>`;
+            catList.innerHTML = `<button onclick="renderCategories()" class="text-blue-400 text-sm font-bold mb-4 flex items-center gap-1">← Back</button>`;
+            appResults.innerHTML = `<h2 class="text-xl font-bold text-white mb-6">${catName}</h2>`;
             
             const apps = aetherCoreApps.filter(app => app.category === catName);
             const grid = document.createElement('div');
