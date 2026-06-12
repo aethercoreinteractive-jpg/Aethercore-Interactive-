@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Popup window styling to avoid full-screen */
+        /* Popup Window - Not Full Screen */
         .lg-outer { background: rgba(0,0,0,0.85) !important; }
         .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; height: 100vh !important; }
-        .lg-outer .lg-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
-        .lg-outer .lg-img-wrap { flex: 0 0 auto !important; width: 80vw !important; max-width: 300px !important; aspect-ratio: 1/1.414 !important; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important; background: #000; }
+        .lg-outer .lg-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; padding: 20px !important; }
+        
+        /* A4 Window Frame - Small and centered */
+        .lg-outer .lg-img-wrap { flex: 0 0 auto !important; width: 60vw !important; max-width: 220px !important; aspect-ratio: 1/1.414 !important; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; display: flex !important; align-items: center !important; justify-content: center !important; background: #000; }
         .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: contain !important; }
-        .lg-outer .lg-pager-outer { position: relative !important; margin-top: 25px !important; width: 100% !important; display: flex !important; justify-content: center !important; }
+        
+        /* Pager dots below frame */
+        .lg-outer .lg-pager-outer { position: relative !important; margin-top: 15px !important; width: 100% !important; display: flex !important; justify-content: center !important; }
     </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
