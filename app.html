@@ -11,10 +11,10 @@
     <script src="data.js"></script>
     <style>
         .lg-outer .lg-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .lg-outer .lg-item { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
-        .lg-outer .lg-img-wrap { width: 90% !important; max-width: 400px; aspect-ratio: 9/16; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+        .lg-outer .lg-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+        .lg-outer .lg-img-wrap { flex-grow: 0 !important; width: 90% !important; max-width: 400px; aspect-ratio: 9/16; display: flex !important; align-items: center; justify-content: center; margin-bottom: 20px !important; }
         .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: contain; }
-        .lg-outer .lg-pager-outer { position: static !important; order: 2; margin-top: 20px !important; }
+        .lg-outer .lg-pager-outer { position: static !important; order: 2 !important; }
     </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
