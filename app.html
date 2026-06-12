@@ -13,15 +13,14 @@
         /* Popup backdrop */
         .lg-outer { background: rgba(0,0,0,0.9) !important; }
         
-        /* Flex container - aligned for equal top/bottom spacing */
-        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; height: 100vh !important; gap: 20px !important; }
+        /* Flex container - Vertically centered group with balanced spacing */
+        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; padding: 20px !important; gap: 24px !important; }
         
         /* The Window Frame */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
             width: 80vw !important; 
             max-width: 320px !important; 
-            max-height: 60vh !important; 
             aspect-ratio: 1 / 1.5 !important; 
             border: 2px solid rgba(255,255,255,0.15); 
             border-radius: 24px; 
@@ -30,7 +29,7 @@
             align-items: center !important; 
             justify-content: center !important; 
             background: #121417; 
-            margin: 0 auto !important;
+            margin: 0 !important;
         }
         
         .lg-outer .lg-object { 
@@ -39,7 +38,7 @@
             object-fit: contain !important; 
         }
         
-        /* Pager dots - aligned naturally relative to the window */
+        /* Pager dots - spacing balanced relative to the window above */
         .lg-outer .lg-pager-outer { 
             position: relative !important; 
             margin: 0 !important; 
