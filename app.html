@@ -25,8 +25,9 @@
         <a id="btn" href="#" class="block w-full bg-[#1E2126] border border-blue-500 text-blue-400 text-center py-3 rounded-2xl font-bold text-lg hover:bg-blue-600 hover:text-white transition-all">Open App</a>
     </div>
 
-    <div class="swiper mySwiper w-full h-auto mb-8">
+    <div class="swiper mySwiper w-full h-auto mb-2">
         <div class="swiper-wrapper" id="slides"></div>
+        <div class="swiper-pagination !relative mt-4"></div>
     </div>
 
     <div class="px-6 pb-20">
@@ -36,6 +37,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -48,12 +50,11 @@
                 document.getElementById('logo').src = app.logo;
                 document.getElementById('btn').href = app.url;
                 
-                // Added lightgallery-group class to the wrapper
                 document.getElementById('slides').innerHTML = app.preview.map(p => {
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
                     return `
-                    <div class="swiper-slide pl-6">
-                        <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
+                    <div class="swiper-slide flex justify-center">
+                        <div class="aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
                              data-src="${p}">
                             ${isVideo 
                                 ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
@@ -62,11 +63,16 @@
                     </div>`;
                 }).join('');
                 
-                new Swiper(".mySwiper", { slidesPerView: 1.1, spaceBetween: 0 });
+                new Swiper(".mySwiper", { 
+                    slidesPerView: 1, 
+                    spaceBetween: 0,
+                    pagination: { el: ".swiper-pagination", clickable: true }
+                });
                 
-                // Initialize Lightbox
                 lightGallery(document.getElementById('slides'), {
-                    selector: '.swiper-slide > div'
+                    selector: '.swiper-slide > div',
+                    licenseKey: '0000-0000-000-0000',
+                    loop: true
                 });
             }
         });
