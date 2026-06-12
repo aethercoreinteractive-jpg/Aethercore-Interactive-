@@ -55,6 +55,7 @@
         const appResults = document.getElementById('app-results');
         const appGrid = document.getElementById('app-grid');
 
+        // Render the initial categories from data.js
         function initCategories() {
             catList.innerHTML = "";
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
@@ -68,6 +69,7 @@
             });
         }
 
+        // Hide list, show apps for the selected category
         function showCategoryApps(catName) {
             catList.classList.add('hidden');
             appResults.classList.remove('hidden');
@@ -88,6 +90,7 @@
             });
         }
 
+        // Hide apps, show list (no navigation, no page reload)
         function hideCategoryApps() {
             appResults.classList.add('hidden');
             catList.classList.remove('hidden');
