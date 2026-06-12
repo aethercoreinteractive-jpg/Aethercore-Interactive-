@@ -11,7 +11,7 @@ const aetherCoreApps = [
     { 
         id: 1, 
         category: "Editors Choice", 
-        title: "Page Forge", 
+        title: "assets/Page Forge", 
         logo: "assets/page-forge-logo.png", 
         description: "Convert images to PDF.", 
         preview: ["Pageforge-1.png"], 
