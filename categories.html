@@ -27,9 +27,8 @@
 
     <main id="cat-content" class="py-6 px-6">
         <div id="category-list" class="grid grid-cols-2 gap-4"></div>
-        
         <div id="app-results" class="hidden">
-            <button onclick="hideCategoryApps()" class="text-blue-400 text-sm font-bold mb-6 flex items-center gap-1">← Back</button>
+            <button onclick="history.back()" class="text-blue-400 text-sm font-bold mb-6 flex items-center gap-1">← Back</button>
             <div id="app-grid" class="grid grid-cols-3 gap-4"></div>
         </div>
     </main>
@@ -55,29 +54,25 @@
         const appResults = document.getElementById('app-results');
         const appGrid = document.getElementById('app-grid');
 
-        // Render the initial categories from data.js
         function initCategories() {
-            catList.innerHTML = "";
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
-            
             sortedCategories.forEach(cat => {
                 const btn = document.createElement('div');
                 btn.className = "surface p-4 rounded-xl cursor-pointer hover:border-blue-500 transition-all text-center font-bold text-sm";
                 btn.innerText = cat;
-                btn.onclick = () => showCategoryApps(cat);
+                btn.onclick = () => {
+                    history.pushState({ category: cat }, "");
+                    showCategoryApps(cat);
+                };
                 catList.appendChild(btn);
             });
         }
 
-        // Hide list, show apps for the selected category
         function showCategoryApps(catName) {
             catList.classList.add('hidden');
             appResults.classList.remove('hidden');
-            
             const apps = aetherCoreApps.filter(app => app.category === catName);
-            
             appGrid.innerHTML = `<h2 class="col-span-3 text-xl font-bold text-white mb-2">${catName}</h2>`;
-            
             apps.forEach(app => {
                 appGrid.innerHTML += `
                     <div onclick="window.location.href='app.html?id=${app.id}'" class="flex flex-col items-center cursor-pointer">
@@ -90,11 +85,15 @@
             });
         }
 
-        // Hide apps, show list (no navigation, no page reload)
-        function hideCategoryApps() {
-            appResults.classList.add('hidden');
-            catList.classList.remove('hidden');
-        }
+        // Listen for back button press
+        window.onpopstate = (event) => {
+            if (event.state && event.state.category) {
+                showCategoryApps(event.state.category);
+            } else {
+                appResults.classList.add('hidden');
+                catList.classList.remove('hidden');
+            }
+        };
 
         initCategories();
     </script>
