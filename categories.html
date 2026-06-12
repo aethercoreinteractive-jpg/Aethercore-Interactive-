@@ -13,7 +13,6 @@
         .text-header { color: #F8FAFC; }
         .nav-link.active { color: #60a5fa; }
         .nav-link { color: #6b7280; }
-        /* Prevent double-tap delay */
         a { touch-action: manipulation; }
     </style>
 </head>
@@ -28,6 +27,7 @@
 
     <main id="cat-content" class="py-6 px-6">
         <div id="category-list" class="grid grid-cols-2 gap-4"></div>
+        
         <div id="app-results" class="hidden">
             <button onclick="hideCategoryApps()" class="text-blue-400 text-sm font-bold mb-6 flex items-center gap-1">← Back</button>
             <div id="app-grid" class="grid grid-cols-3 gap-4"></div>
@@ -44,19 +44,13 @@
         <a href="games.html" class="nav-link flex flex-col items-center gap-1">
             <span class="text-[10px] font-bold uppercase">Games</span>
         </a>
-        <a href="categories.html" class="nav-link flex flex-col items-center gap-1">
+        <a href="categories.html" class="nav-link flex flex-col items-center gap-1 active">
             <span class="text-[10px] font-bold uppercase">Categories</span>
         </a>
     </footer>
 
     <script src="data.js"></script>
     <script>
-        // Set active state for footer
-        const path = window.location.pathname.split("/").pop() || "categories.html";
-        document.querySelectorAll('footer a').forEach(link => {
-            if (link.getAttribute('href') === path) link.classList.add('active');
-        });
-
         const catList = document.getElementById('category-list');
         const appResults = document.getElementById('app-results');
         const appGrid = document.getElementById('app-grid');
@@ -77,9 +71,10 @@
         function showCategoryApps(catName) {
             catList.classList.add('hidden');
             appResults.classList.remove('hidden');
-            appGrid.innerHTML = `<h2 class="col-span-3 text-xl font-bold text-white mb-2">${catName}</h2>`;
             
             const apps = aetherCoreApps.filter(app => app.category === catName);
+            
+            appGrid.innerHTML = `<h2 class="col-span-3 text-xl font-bold text-white mb-2">${catName}</h2>`;
             
             apps.forEach(app => {
                 appGrid.innerHTML += `
