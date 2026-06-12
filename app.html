@@ -10,20 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Popup backdrop */
-        .lg-outer { background: rgba(0,0,0,0.9) !important; }
+        /* Popup Window Positioning */
+        .lg-outer { background: rgba(0,0,0,0.95) !important; }
         
-        /* Flex container centers the entire block vertically */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important; 
             height: 100vh !important; 
-            gap: 40px !important; /* This gap ensures equal space between elements */
+            gap: 30px !important; /* This creates the equal space between window and dots */
         }
-        
-        /* The Window Frame */
+
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
             width: 80vw !important; 
@@ -35,20 +33,20 @@
             display: flex !important; 
             align-items: center !important; 
             justify-content: center !important; 
-            background: #121417; 
-            margin: 0 !important;
+            background: #000; 
+            margin: 0 !important; 
         }
-        
+
         .lg-outer .lg-object { 
             width: 100% !important; 
             height: 100% !important; 
             object-fit: contain !important; 
         }
-        
-        /* Pager dots - positioned relative to the frame */
+
         .lg-outer .lg-pager-outer { 
-            position: static !important; 
-            width: 100% !important; 
+            position: relative !important; 
+            margin: 0 !important; 
+            padding: 0 !important;
             display: flex !important; 
             justify-content: center !important; 
         }
