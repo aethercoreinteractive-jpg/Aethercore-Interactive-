@@ -35,27 +35,31 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const id = new URLSearchParams(window.location.search).get('id');
-        const app = aetherCoreApps.find(a => a.id == id);
-        document.getElementById('title').innerText = app.title;
-        document.getElementById('desc').innerText = app.description;
-        document.getElementById('logo').src = app.logo;
-        document.getElementById('btn').href = app.url;
-        
-        // Logic to handle images or videos in 16:9 ratio
-        document.getElementById('slides').innerHTML = app.preview.map(p => {
-            const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
-            return `
-            <div class="swiper-slide pl-6">
-                <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
-                    ${isVideo 
-                        ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
-                        : `<img src="${p}" class="w-full h-full object-cover">`}
-                </div>
-            </div>`;
-        }).join('');
-        
-        new Swiper(".mySwiper", { slidesPerView: 1.1, spaceBetween: 0 });
+        document.addEventListener("DOMContentLoaded", function() {
+            const id = new URLSearchParams(window.location.search).get('id');
+            const app = aetherCoreApps.find(a => a.id == id);
+            
+            if (app) {
+                document.getElementById('title').innerText = app.title;
+                document.getElementById('desc').innerText = app.description;
+                document.getElementById('logo').src = app.logo;
+                document.getElementById('btn').href = app.url;
+                
+                document.getElementById('slides').innerHTML = app.preview.map(p => {
+                    const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
+                    return `
+                    <div class="swiper-slide pl-6">
+                        <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
+                            ${isVideo 
+                                ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
+                                : `<img src="${p}" class="w-full h-full object-cover">`}
+                        </div>
+                    </div>`;
+                }).join('');
+                
+                new Swiper(".mySwiper", { slidesPerView: 1.1, spaceBetween: 0 });
+            }
+        });
     </script>
 </body>
 </html>
