@@ -72,7 +72,14 @@
                 lightGallery(document.getElementById('slides'), {
                     selector: '.swiper-slide > div',
                     licenseKey: '0000-0000-000-0000',
-                    loop: true
+                    loop: true,
+                    fullScreen: false,
+                    zoom: true,
+                    mobileSettings: {
+                        controls: true,
+                        showCloseIcon: true,
+                        download: false
+                    }
                 });
             }
         });
