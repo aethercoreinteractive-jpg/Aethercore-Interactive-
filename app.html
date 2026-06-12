@@ -20,16 +20,15 @@
             align-items: center !important; 
             justify-content: center !important; 
             height: 100vh !important; 
-            gap: 20px !important; 
+            gap: 40px !important; /* Balanced gap between window and dots */
             padding: 20px !important; 
         }
 
-        /* A4 Window Frame */
+        /* A4 Window Frame: $1 / 1.414$ Ratio */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
-            width: 50vw !important; 
-            max-width: 200px !important; 
-            aspect-ratio: 1 / 1.414 !important; 
+            width: 200px !important; 
+            height: 282px !important; /* Exact A4 proportion at this width */
             border: 2px solid rgba(255,255,255,0.2); 
             border-radius: 16px !important; 
             overflow: hidden !important; 
