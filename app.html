@@ -13,7 +13,7 @@
         /* Popup backdrop */
         .lg-outer { background: rgba(0,0,0,0.95) !important; }
         
-        /* Centered container with tightly controlled spacing */
+        /* Centered container with professional spacing */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
@@ -21,15 +21,14 @@
             justify-content: center !important; 
             height: 100vh !important; 
             padding: 20px !important;
-            gap: 20px !important; /* Equal spacing between window and dots */
+            gap: 25px !important; 
         }
         
-        /* The Window Frame */
+        /* The Window Frame - contained to fit screen naturally */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
             width: 80vw !important; 
-            max-width: 300px !important; 
-            aspect-ratio: 1 / 1.5 !important; 
+            max-width: 320px !important; 
             border: 2px solid rgba(255,255,255,0.15); 
             border-radius: 20px; 
             overflow: hidden; 
@@ -38,11 +37,13 @@
             justify-content: center !important; 
             background: #000; 
             margin: 0 !important;
+            padding: 10px !important;
         }
         
+        /* Image fits inside frame without being stretched */
         .lg-outer .lg-object { 
-            width: 100% !important; 
-            height: 100% !important; 
+            max-width: 100% !important; 
+            max-height: 60vh !important; 
             object-fit: contain !important; 
         }
         
