@@ -6,6 +6,7 @@
     <title>App Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"/>
     <script src="data.js"></script>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
@@ -34,6 +35,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const id = new URLSearchParams(window.location.search).get('id');
@@ -45,11 +48,13 @@
                 document.getElementById('logo').src = app.logo;
                 document.getElementById('btn').href = app.url;
                 
+                // Added lightgallery-group class to the wrapper
                 document.getElementById('slides').innerHTML = app.preview.map(p => {
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
                     return `
                     <div class="swiper-slide pl-6">
-                        <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
+                        <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
+                             data-src="${p}">
                             ${isVideo 
                                 ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
                                 : `<img src="${p}" class="w-full h-full object-cover">`}
@@ -58,6 +63,11 @@
                 }).join('');
                 
                 new Swiper(".mySwiper", { slidesPerView: 1.1, spaceBetween: 0 });
+                
+                // Initialize Lightbox
+                lightGallery(document.getElementById('slides'), {
+                    selector: '.swiper-slide > div'
+                });
             }
         });
     </script>
