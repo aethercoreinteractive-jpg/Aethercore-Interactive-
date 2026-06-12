@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aethercore | Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #121417; color: #E2E8F0; padding-bottom: 80px; }
+        .surface { background-color: #1E2126; border: 1px solid #2D3238; }
+        .glass-nav { background: rgba(18, 20, 23, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid #2D3238; }
+        .text-header { color: #F8FAFC; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .nav-link.active { color: #60a5fa; }
+        .nav-link { color: #6b7280; }
+    </style>
+</head>
+<body>
+
+    <header class="glass-nav sticky top-0 z-50 px-6 pt-6 pb-4">
+        <div class="flex items-center gap-3 mb-5">
+            <img src="Aethercore Logo.png" class="w-10 h-10 rounded-full border border-gray-600 object-cover shadow-lg">
+            <h1 class="text-xl font-bold text-header tracking-tight">Aethercore <span class="text-blue-400">Interactive</span></h1>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search games..." 
+               class="w-full bg-[#262A31] text-white rounded-xl px-5 py-3.5 text-sm outline-none border border-gray-600 focus:border-blue-500 transition-all placeholder:text-gray-500">
+    </header>
+
+    <main id="store-content" class="py-6 space-y-12"></main>
+
+    <footer class="fixed bottom-0 w-full glass-nav border-t border-gray-700 flex justify-around py-3 z-50">
+        <a href="index.html" class="nav-link flex flex-col items-center gap-1">
+            <span class="text-[10px] font-bold uppercase">Home</span>
+        </a>
+        <a href="apps.html" class="nav-link flex flex-col items-center gap-1">
+            <span class="text-[10px] font-bold uppercase">Apps</span>
+        </a>
+        <a href="games.html" class="nav-link flex flex-col items-center gap-1">
+            <span class="text-[10px] font-bold uppercase">Games</span>
+        </a>
+        <a href="categories.html" class="nav-link flex flex-col items-center gap-1">
+            <span class="text-[10px] font-bold uppercase">Categories</span>
+        </a>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        const path = window.location.pathname.split("/").pop() || "games.html";
+        document.querySelectorAll('footer a').forEach(link => {
+            if (link.getAttribute('href') === path) {
+                link.classList.add('active');
+            }
+        });
+
+        const content = document.getElementById('store-content');
+        const searchInput = document.getElementById('searchInput');
+
+        function render(filter = "") {
+            content.innerHTML = "";
+            const query = filter.toLowerCase().trim();
+
+            // Filter: ONLY Games
+            const gameData = aetherCoreApps.filter(app => app.category === 'Games');
+
+            const scoredGames = gameData.map(app => {
+                let score = 0;
+                const title = app.title.toLowerCase();
+                const fullText = (app.category + " " + app.title + " " + app.description).toLowerCase();
+
+                if (query === "") {
+                    score = 1;
+                } else if (title === query) {
+                    score = 100;
+                } else if (title.startsWith(query)) {
+                    score = 75;
+                } else if (title.includes(query)) {
+                    score = 50;
+                } else if (fullText.includes(query)) {
+                    score = 25;
+                }
+                return { ...app, score };
+            }).filter(app => app.score > 0).sort((a, b) => b.score - a.score);
+
+            if (scoredGames.length > 0) {
+                const section = document.createElement('section');
+                section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">Games</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
+                
+                const row = section.querySelector('.flex');
+                scoredGames.forEach(app => {
+                    row.innerHTML += `
+                        <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[85px] flex flex-col items-center cursor-pointer group">
+                            <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center shadow-2xl overflow-hidden">
+                                <img src="${app.logo}" class="w-full h-full object-cover">
+                            </div>
+                            <span class="mt-3 text-[12px] font-semibold text-gray-200 text-center leading-tight w-24 truncate">${app.title}</span>
+                        </div>
+                    `;
+                });
+                content.appendChild(section);
+            }
+        }
+
+        searchInput.addEventListener('input', (e) => render(e.target.value));
+        render();
+    </script>
+</body>
+</html>
