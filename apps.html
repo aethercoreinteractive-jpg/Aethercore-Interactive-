@@ -46,7 +46,6 @@
 
     <script src="data.js"></script>
     <script>
-        // Set active state for footer
         const path = window.location.pathname.split("/").pop() || "apps.html";
         document.querySelectorAll('footer a').forEach(link => {
             if (link.getAttribute('href') === path) {
@@ -57,14 +56,14 @@
         const content = document.getElementById('store-content');
         const searchInput = document.getElementById('searchInput');
 
-        // Filter: everything EXCEPT Games
-        const nonGameApps = aetherCoreApps.filter(app => app.category !== 'Games');
-
         function render(filter = "") {
             content.innerHTML = "";
             const query = filter.toLowerCase().trim();
 
-            const scoredApps = nonGameApps.map(app => {
+            // Filter apps: Exclude only the 'Games' category
+            const filteredData = aetherCoreApps.filter(app => app.category !== 'Games');
+
+            const scoredApps = filteredData.map(app => {
                 let score = 0;
                 const title = app.title.toLowerCase();
                 const fullText = (app.category + " " + app.title + " " + app.description).toLowerCase();
@@ -86,7 +85,7 @@
             const sortedCategoryNames = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
 
             sortedCategoryNames.forEach(catName => {
-                if (catName === 'Games') return; // Skip Games category
+                if (catName === 'Games') return;
 
                 const categoryApps = scoredApps
                     .filter(app => app.category === catName)
