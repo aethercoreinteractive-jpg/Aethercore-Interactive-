@@ -24,7 +24,7 @@
         <a id="btn" href="#" class="block w-full bg-[#1E2126] border border-blue-500 text-blue-400 text-center py-3 rounded-2xl font-bold text-lg hover:bg-blue-600 hover:text-white transition-all">Open App</a>
     </div>
 
-    <div class="swiper mySwiper w-full h-56 mb-8">
+    <div class="swiper mySwiper w-full h-auto mb-8">
         <div class="swiper-wrapper" id="slides"></div>
     </div>
 
@@ -41,9 +41,21 @@
         document.getElementById('desc').innerText = app.description;
         document.getElementById('logo').src = app.logo;
         document.getElementById('btn').href = app.url;
-        document.getElementById('slides').innerHTML = app.preview.map(p => 
-            `<div class="swiper-slide pl-6"><img src="${p}" class="h-full w-auto object-contain rounded-2xl border border-[#2D3238]"></div>`).join('');
-        new Swiper(".mySwiper", { slidesPerView: 'auto', spaceBetween: 10 });
+        
+        // Logic to handle images or videos in 16:9 ratio
+        document.getElementById('slides').innerHTML = app.preview.map(p => {
+            const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
+            return `
+            <div class="swiper-slide pl-6">
+                <div class="aspect-video w-full overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
+                    ${isVideo 
+                        ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
+                        : `<img src="${p}" class="w-full h-full object-cover">`}
+                </div>
+            </div>`;
+        }).join('');
+        
+        new Swiper(".mySwiper", { slidesPerView: 1.1, spaceBetween: 0 });
     </script>
 </body>
 </html>
