@@ -14,7 +14,7 @@ const aetherCoreApps = [
         title: "Page Forge", 
         logo: "assets/page-forge-logo.png", 
         description: "Convert images to PDF.", 
-        preview: ["assets/Pageforge-1.png", "assets/Pageforge-2.png"], 
+        preview: ["Pageforge-1.png", "Pageforge-2.png"], 
         url: "https://sharanmusician.com/Page-Forge/" 
     },
     { 
