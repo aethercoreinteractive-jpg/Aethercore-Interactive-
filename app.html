@@ -10,28 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* 1. Backdrop: Full screen dimmed overlay */
+        /* Popup backdrop */
         .lg-outer { background: rgba(0,0,0,0.95) !important; }
         
-        /* 2. Container: Using Flexbox to center everything as a single column block */
+        /* Flex container: Centered column group with balanced spacing */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important; 
             height: 100vh !important;
-            gap: 24px !important; /* This creates the equal spacing between the window and dots */
+            gap: 24px !important; 
             padding: 20px !important;
         }
         
-        /* 3. The Window: Small, fixed width/ratio, no stretching */
+        /* The Window Frame: A4 Aspect Ratio ($1/1.414$) */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
-            width: 75vw !important; 
-            max-width: 280px !important; /* Keeps the window small */
-            aspect-ratio: 1 / 1.5 !important; 
+            width: 60vw !important; 
+            max-width: 220px !important; 
+            aspect-ratio: 1 / 1.414 !important; 
             border: 2px solid rgba(255,255,255,0.15); 
-            border-radius: 20px; 
+            border-radius: 16px; 
             overflow: hidden; 
             display: flex !important; 
             align-items: center !important; 
@@ -40,14 +40,14 @@
             margin: 0 !important;
         }
         
-        /* 4. The Image: Contained within the frame without distortion */
+        /* The Image: Contained within A4 frame without stretching */
         .lg-outer .lg-object { 
             width: 100% !important; 
             height: 100% !important; 
             object-fit: contain !important; 
         }
         
-        /* 5. Indicators: Positioned naturally below the window within the flex flow */
+        /* Indicators: Centered below the A4 window */
         .lg-outer .lg-pager-outer { 
             position: static !important; 
             width: 100% !important; 
