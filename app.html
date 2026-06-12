@@ -10,28 +10,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Popup backdrop */
+        /* Backdrop overlay */
         .lg-outer { background: rgba(0,0,0,0.95) !important; }
         
-        /* Flex container: Centered column group with balanced spacing */
+        /* Main flex column: Centers the A4 window and dots as one block */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important; 
-            height: 100vh !important;
-            gap: 24px !important; 
-            padding: 20px !important;
+            height: 100vh !important; 
+            gap: 20px !important; /* Space between window and dots */
         }
         
-        /* The Window Frame: A4 Aspect Ratio ($1/1.414$) */
+        /* A4 Window Frame: Compact, fixed ratio, no stretching */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
-            width: 60vw !important; 
-            max-width: 220px !important; 
-            aspect-ratio: 1 / 1.414 !important; 
-            border: 2px solid rgba(255,255,255,0.15); 
-            border-radius: 16px; 
+            width: 50vw !important; 
+            max-width: 200px !important; /* Small size as requested */
+            aspect-ratio: 1 / 1.414 !important; /* A4 Ratio */
+            border: 2px solid rgba(255,255,255,0.2); 
+            border-radius: 12px; 
             overflow: hidden; 
             display: flex !important; 
             align-items: center !important; 
@@ -40,20 +39,19 @@
             margin: 0 !important;
         }
         
-        /* The Image: Contained within A4 frame without stretching */
         .lg-outer .lg-object { 
             width: 100% !important; 
             height: 100% !important; 
             object-fit: contain !important; 
         }
         
-        /* Indicators: Centered below the A4 window */
+        /* Indicator dots: Positioned static to flow with the window */
         .lg-outer .lg-pager-outer { 
             position: static !important; 
-            width: 100% !important; 
             display: flex !important; 
             justify-content: center !important; 
-            margin: 0 !important; 
+            margin: 0 !important;
+            padding: 0 !important;
         }
     </style>
 </head>
