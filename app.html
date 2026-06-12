@@ -13,8 +13,15 @@
         /* Popup backdrop */
         .lg-outer { background: rgba(0,0,0,0.9) !important; }
         
-        /* Flex container - Vertically centered group with balanced spacing */
-        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; padding: 20px !important; gap: 24px !important; }
+        /* Flex container centers the entire block vertically */
+        .lg-outer .lg-inner { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            align-items: center !important; 
+            justify-content: center !important; 
+            height: 100vh !important; 
+            gap: 40px !important; /* This gap ensures equal space between elements */
+        }
         
         /* The Window Frame */
         .lg-outer .lg-img-wrap { 
@@ -38,10 +45,9 @@
             object-fit: contain !important; 
         }
         
-        /* Pager dots - spacing balanced relative to the window above */
+        /* Pager dots - positioned relative to the frame */
         .lg-outer .lg-pager-outer { 
-            position: relative !important; 
-            margin: 0 !important; 
+            position: static !important; 
             width: 100% !important; 
             display: flex !important; 
             justify-content: center !important; 
