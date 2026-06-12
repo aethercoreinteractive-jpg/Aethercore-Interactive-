@@ -11,26 +11,33 @@
     <script src="data.js"></script>
     <style>
         /* Popup backdrop */
-        .lg-outer { background: rgba(0,0,0,0.9) !important; }
+        .lg-outer { background: rgba(0,0,0,0.95) !important; }
         
-        /* Flex container - added padding to push window down slightly */
-        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; height: 100vh !important; padding-top: 60px !important; }
+        /* Centered container with tightly controlled spacing */
+        .lg-outer .lg-inner { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            align-items: center !important; 
+            justify-content: center !important; 
+            height: 100vh !important; 
+            padding: 20px !important;
+            gap: 20px !important; /* Equal spacing between window and dots */
+        }
         
         /* The Window Frame */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
             width: 80vw !important; 
-            max-width: 320px !important; 
-            max-height: 60vh !important; 
+            max-width: 300px !important; 
             aspect-ratio: 1 / 1.5 !important; 
             border: 2px solid rgba(255,255,255,0.15); 
-            border-radius: 24px; 
+            border-radius: 20px; 
             overflow: hidden; 
             display: flex !important; 
             align-items: center !important; 
             justify-content: center !important; 
-            background: #121417; 
-            margin: 0 auto !important;
+            background: #000; 
+            margin: 0 !important;
         }
         
         .lg-outer .lg-object { 
@@ -39,10 +46,10 @@
             object-fit: contain !important; 
         }
         
-        /* Pager dots - moved up closer to the frame */
+        /* Pager dots container */
         .lg-outer .lg-pager-outer { 
             position: relative !important; 
-            margin-top: 15px !important; 
+            margin: 0 !important; 
             width: 100% !important; 
             display: flex !important; 
             justify-content: center !important; 
