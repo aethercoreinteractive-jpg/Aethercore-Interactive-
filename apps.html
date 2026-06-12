@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethercore | Games</title>
+    <title>Aethercore | Apps</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -11,7 +11,7 @@
         .surface { background-color: #1E2126; border: 1px solid #2D3238; }
         .glass-nav { background: rgba(18, 20, 23, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid #2D3238; }
         .text-header { color: #F8FAFC; }
-        .hide-scrollbar::-scrollbar { display: none; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
         .nav-link.active { color: #60a5fa; }
         .nav-link { color: #6b7280; }
     </style>
@@ -23,7 +23,7 @@
             <img src="Aethercore Logo.png" class="w-10 h-10 rounded-full border border-gray-600 object-cover shadow-lg">
             <h1 class="text-xl font-bold text-header tracking-tight">Aethercore <span class="text-blue-400">Interactive</span></h1>
         </div>
-        <input type="text" id="searchInput" placeholder="Search games..." 
+        <input type="text" id="searchInput" placeholder="Search apps..." 
                class="w-full bg-[#262A31] text-white rounded-xl px-5 py-3.5 text-sm outline-none border border-gray-600 focus:border-blue-500 transition-all placeholder:text-gray-500">
     </header>
 
@@ -47,7 +47,7 @@
     <script src="data.js"></script>
     <script>
         // Set active state for footer
-        const path = window.location.pathname.split("/").pop() || "games.html";
+        const path = window.location.pathname.split("/").pop() || "apps.html";
         document.querySelectorAll('footer a').forEach(link => {
             if (link.getAttribute('href') === path) {
                 link.classList.add('active');
@@ -57,17 +57,17 @@
         const content = document.getElementById('store-content');
         const searchInput = document.getElementById('searchInput');
 
-        // Filter only items where category is 'Games'
-        const gameApps = aetherCoreApps.filter(app => app.category === 'Games');
+        // Filter: everything EXCEPT Games
+        const nonGameApps = aetherCoreApps.filter(app => app.category !== 'Games');
 
         function render(filter = "") {
             content.innerHTML = "";
             const query = filter.toLowerCase().trim();
 
-            const scoredGames = gameApps.map(app => {
+            const scoredApps = nonGameApps.map(app => {
                 let score = 0;
                 const title = app.title.toLowerCase();
-                const fullText = (app.title + " " + app.description).toLowerCase();
+                const fullText = (app.category + " " + app.title + " " + app.description).toLowerCase();
 
                 if (query === "") {
                     score = 1;
@@ -81,25 +81,35 @@
                     score = 25;
                 }
                 return { ...app, score };
-            }).filter(app => app.score > 0).sort((a, b) => b.score - a.score);
+            }).filter(app => app.score > 0);
 
-            if (scoredGames.length > 0) {
-                const section = document.createElement('section');
-                section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">All Games</h2><div class="grid grid-cols-3 gap-4 px-6"></div>`;
-                
-                const grid = section.querySelector('.grid');
-                scoredGames.forEach(app => {
-                    grid.innerHTML += `
-                        <div onclick="window.location.href='app.html?id=${app.id}'" class="flex flex-col items-center cursor-pointer group">
-                            <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center shadow-2xl overflow-hidden">
-                                <img src="${app.logo}" class="w-full h-full object-cover">
+            const sortedCategoryNames = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
+
+            sortedCategoryNames.forEach(catName => {
+                if (catName === 'Games') return; // Skip Games category
+
+                const categoryApps = scoredApps
+                    .filter(app => app.category === catName)
+                    .sort((a, b) => b.score - a.score);
+
+                if (categoryApps.length > 0) {
+                    const section = document.createElement('section');
+                    section.innerHTML = `<h2 class="px-6 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-400 mb-5">${catName}</h2><div class="flex gap-5 px-6 overflow-x-auto hide-scrollbar"></div>`;
+                    
+                    const row = section.querySelector('.flex');
+                    categoryApps.forEach(app => {
+                        row.innerHTML += `
+                            <div onclick="window.location.href='app.html?id=${app.id}'" class="min-w-[85px] flex flex-col items-center cursor-pointer group">
+                                <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center shadow-2xl overflow-hidden">
+                                    <img src="${app.logo}" class="w-full h-full object-cover">
+                                </div>
+                                <span class="mt-3 text-[12px] font-semibold text-gray-200 text-center leading-tight w-24 truncate">${app.title}</span>
                             </div>
-                            <span class="mt-3 text-[12px] font-semibold text-gray-200 text-center leading-tight w-24 truncate">${app.title}</span>
-                        </div>
-                    `;
-                });
-                content.appendChild(section);
-            }
+                        `;
+                    });
+                    content.appendChild(section);
+                }
+            });
         }
 
         searchInput.addEventListener('input', (e) => render(e.target.value));
