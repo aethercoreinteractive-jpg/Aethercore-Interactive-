@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+        /* Popup window styling to avoid full-screen */
+        .lg-outer { background: rgba(0,0,0,0.85) !important; }
+        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; height: 100vh !important; }
         .lg-outer .lg-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
-        /* A4 Window Frame */
         .lg-outer .lg-img-wrap { flex: 0 0 auto !important; width: 80vw !important; max-width: 300px !important; aspect-ratio: 1/1.414 !important; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto !important; background: #000; }
         .lg-outer .lg-object { width: 100% !important; height: 100% !important; object-fit: contain !important; }
-        /* Pager dots centered below window */
         .lg-outer .lg-pager-outer { position: relative !important; margin-top: 25px !important; width: 100% !important; display: flex !important; justify-content: center !important; }
     </style>
 </head>
