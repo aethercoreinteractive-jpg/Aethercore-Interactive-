@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
+    <style>
+        .lg-pager-outer { position: relative !important; margin-top: 15px !important; }
+    </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
 
@@ -56,11 +59,11 @@
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
                     return `
                     <div class="swiper-slide flex justify-center">
-                        <div class="aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
+                        <div class="aspect-[9/16] w-[80%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
                              data-src="${p}">
                             ${isVideo 
-                                ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
-                                : `<img src="${p}" class="w-full h-full object-cover">`}
+                                ? `<video src="${p}" class="w-full h-full object-contain" controls playsinline></video>` 
+                                : `<img src="${p}" class="w-full h-full object-contain">`}
                         </div>
                     </div>`;
                 }).join('');
