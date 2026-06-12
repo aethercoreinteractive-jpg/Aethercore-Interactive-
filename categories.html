@@ -13,6 +13,8 @@
         .text-header { color: #F8FAFC; }
         .nav-link.active { color: #60a5fa; }
         .nav-link { color: #6b7280; }
+        /* Prevent double-tap delay */
+        a { touch-action: manipulation; }
     </style>
 </head>
 <body>
@@ -26,7 +28,10 @@
 
     <main id="cat-content" class="py-6 px-6">
         <div id="category-list" class="grid grid-cols-2 gap-4"></div>
-        <div id="app-results" class="mt-4 space-y-8"></div>
+        <div id="app-results" class="hidden">
+            <button onclick="hideCategoryApps()" class="text-blue-400 text-sm font-bold mb-6 flex items-center gap-1">← Back</button>
+            <div id="app-grid" class="grid grid-cols-3 gap-4"></div>
+        </div>
     </main>
 
     <footer class="fixed bottom-0 w-full glass-nav border-t border-gray-700 flex justify-around py-3 z-50">
@@ -46,6 +51,7 @@
 
     <script src="data.js"></script>
     <script>
+        // Set active state for footer
         const path = window.location.pathname.split("/").pop() || "categories.html";
         document.querySelectorAll('footer a').forEach(link => {
             if (link.getAttribute('href') === path) link.classList.add('active');
@@ -53,10 +59,10 @@
 
         const catList = document.getElementById('category-list');
         const appResults = document.getElementById('app-results');
+        const appGrid = document.getElementById('app-grid');
 
-        function renderCategories() {
+        function initCategories() {
             catList.innerHTML = "";
-            appResults.innerHTML = "";
             const sortedCategories = Object.keys(categoryOrder).sort((a, b) => categoryOrder[a] - categoryOrder[b]);
             
             sortedCategories.forEach(cat => {
@@ -69,15 +75,14 @@
         }
 
         function showCategoryApps(catName) {
-            catList.innerHTML = `<button onclick="renderCategories()" class="text-blue-400 text-sm font-bold mb-4 flex items-center gap-1">← Back</button>`;
-            appResults.innerHTML = `<h2 class="text-xl font-bold text-white mb-6">${catName}</h2>`;
+            catList.classList.add('hidden');
+            appResults.classList.remove('hidden');
+            appGrid.innerHTML = `<h2 class="col-span-3 text-xl font-bold text-white mb-2">${catName}</h2>`;
             
             const apps = aetherCoreApps.filter(app => app.category === catName);
-            const grid = document.createElement('div');
-            grid.className = "grid grid-cols-3 gap-4";
             
             apps.forEach(app => {
-                grid.innerHTML += `
+                appGrid.innerHTML += `
                     <div onclick="window.location.href='app.html?id=${app.id}'" class="flex flex-col items-center cursor-pointer">
                         <div class="w-20 h-20 surface rounded-[22px] flex items-center justify-center overflow-hidden">
                             <img src="${app.logo}" class="w-full h-full object-cover">
@@ -86,10 +91,14 @@
                     </div>
                 `;
             });
-            appResults.appendChild(grid);
         }
 
-        renderCategories();
+        function hideCategoryApps() {
+            appResults.classList.add('hidden');
+            catList.classList.remove('hidden');
+        }
+
+        initCategories();
     </script>
 </body>
 </html>
