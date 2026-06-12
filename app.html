@@ -12,7 +12,7 @@
 
     <button onclick="history.back()" class="p-4 text-2xl text-blue-400">←</button>
 
-    <div class="px-6 pb-4 flex items-center gap-4">
+    <div class="px-6 pb-6 flex items-center gap-4">
         <img id="logo" class="w-20 h-20 rounded-2xl shadow-md border border-[#2D3238]">
         <div>
             <h1 id="title" class="text-xl font-bold text-[#F8FAFC]"></h1>
@@ -20,11 +20,11 @@
         </div>
     </div>
 
-    <div class="px-6 mb-6">
-        <a id="btn" href="#" class="block w-full bg-blue-600 text-white text-center py-3 rounded font-bold text-lg hover:bg-blue-700 transition">Open</a>
+    <div class="px-6 mb-8">
+        <a id="btn" href="#" class="block w-full bg-[#1E2126] border border-blue-500 text-blue-400 text-center py-3 rounded-2xl font-bold text-lg hover:bg-blue-600 hover:text-white transition-all">Open App</a>
     </div>
 
-    <div class="swiper mySwiper w-full h-64 mb-6">
+    <div class="swiper mySwiper w-full h-56 mb-8">
         <div class="swiper-wrapper" id="slides"></div>
     </div>
 
@@ -42,8 +42,8 @@
         document.getElementById('logo').src = app.logo;
         document.getElementById('btn').href = app.url;
         document.getElementById('slides').innerHTML = app.preview.map(p => 
-            `<div class="swiper-slide px-2"><img src="${p}" class="h-full w-full object-cover rounded-xl border border-[#2D3238]"></div>`).join('');
-        new Swiper(".mySwiper", { slidesPerView: 1.2, spaceBetween: 0 });
+            `<div class="swiper-slide pl-6"><img src="${p}" class="h-full w-auto object-contain rounded-2xl border border-[#2D3238]"></div>`).join('');
+        new Swiper(".mySwiper", { slidesPerView: 'auto', spaceBetween: 10 });
     </script>
 </body>
 </html>
