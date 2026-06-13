@@ -31,7 +31,12 @@
 
     <div class="px-6 pb-20">
         <h2 class="font-bold text-lg mb-2 text-[#F8FAFC]">About this app</h2>
-        <p id="desc" class="text-gray-400 text-sm leading-relaxed"></p>
+        <p id="desc" class="text-gray-400 text-sm leading-relaxed mb-4"></p>
+        
+        <div id="ratingContainer" class="flex items-center gap-2">
+            <span class="text-sm font-bold text-[#F8FAFC]" id="ratingText"></span>
+            <div class="flex text-yellow-400" id="stars"></div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -47,9 +52,15 @@
                 document.getElementById('logo').src = app.logo;
                 document.getElementById('btn').href = app.url;
                 
+                // Set Rating
+                const ratingValue = parseInt(app.rating.split('/')[0]);
+                document.getElementById('ratingText').innerText = app.rating;
+                document.getElementById('stars').innerHTML = Array(5).fill(0).map((_, i) => 
+                    `<svg class="w-5 h-5 ${i < ratingValue ? 'fill-yellow-400' : 'fill-gray-600'}" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
+                ).join('');
+                
                 document.getElementById('slides').innerHTML = app.preview.map((p, index) => {
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
-                    // Each slide is now a clickable link to fullscreen.html with index passed
                     return `
                     <div class="swiper-slide flex justify-center">
                         <a href="fullscreen.html?id=${id}&index=${index}" class="block aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
