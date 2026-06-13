@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Backdrop fills the screen */
+        /* Full screen backdrop */
         .lg-outer { 
             background: rgba(0,0,0,0.95) !important; 
             position: fixed !important; 
@@ -18,7 +18,7 @@
             z-index: 9999 !important;
         }
         
-        /* Inner container fills dynamic viewport height */
+        /* Centered Flex container */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
@@ -26,24 +26,22 @@
             justify-content: center !important; 
             height: 100dvh !important; 
             width: 100% !important;
-            padding: 20px !important;
+            padding: 0 !important;
         }
         
-        /* The Window Frame - Set to a large, comfortable full-screen size */
+        /* Full-screen aspect image container */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
-            width: 90vw !important; 
-            max-width: 400px !important; 
-            height: auto !important;
-            max-height: 80dvh !important; 
-            aspect-ratio: 1 / 1.5 !important; 
-            border: 2px solid rgba(255,255,255,0.1); 
-            border-radius: 32px !important; 
+            width: 100vw !important; 
+            max-width: 100% !important; 
+            height: 85dvh !important; 
+            border-radius: 0 !important; 
+            border: none !important;
             overflow: hidden !important; 
             display: flex !important; 
             align-items: center !important; 
             justify-content: center !important; 
-            background: #000 !important; 
+            background: transparent !important; 
             margin: 0 auto !important;
         }
         
@@ -53,10 +51,10 @@
             object-fit: contain !important; 
         }
         
-        /* Pager centered below the image */
+        /* Moved indicator up */
         .lg-outer .lg-pager-outer { 
-            position: relative !important; 
-            margin-top: 20px !important; 
+            position: absolute !important; 
+            bottom: 8dvh !important; 
             width: 100% !important; 
             display: flex !important; 
             justify-content: center !important; 
