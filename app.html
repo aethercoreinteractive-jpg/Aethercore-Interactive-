@@ -13,8 +13,19 @@
         /* Popup backdrop */
         .lg-outer { background: rgba(0,0,0,0.9) !important; }
         
-        /* Flex container for content - Using 100dvh to exclude browser UI bars */
-        .lg-outer .lg-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; height: 100dvh !important; padding: 0 !important; }
+        /* Flex container for content - Centered within the viewport */
+        .lg-outer .lg-inner { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            align-items: center !important; 
+            justify-content: center !important; 
+            height: 100dvh !important; 
+            padding: 0 !important; 
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+        }
         
         /* The Window Frame */
         .lg-outer .lg-img-wrap { 
