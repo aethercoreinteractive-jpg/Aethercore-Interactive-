@@ -10,26 +10,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Popup backdrop */
-        .lg-outer { background: rgba(0,0,0,0.9) !important; }
+        /* Force the popup to cover the actual screen and center its content */
+        .lg-outer { 
+            background: rgba(0,0,0,0.9) !important; 
+            position: fixed !important; 
+            inset: 0 !important; 
+            width: 100vw !important; 
+            height: 100vh !important; 
+        }
         
-        /* Flex container - Positioned specifically to match your request */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
             align-items: center !important; 
-            justify-content: flex-start !important; 
-            height: 100dvh !important; 
-            padding-top: 15vh !important; 
-            width: 100% !important;
+            justify-content: center !important; 
+            width: 100% !important; 
+            height: 100% !important; 
+            padding: 0 !important; 
+            margin: 0 !important;
         }
         
-        /* The Window Frame */
+        /* The Window Frame - Using fixed size relative to viewport */
         .lg-outer .lg-img-wrap { 
             flex: 0 0 auto !important; 
             width: 80vw !important; 
             max-width: 320px !important; 
-            max-height: 70dvh !important; 
+            height: auto !important;
+            max-height: 60vh !important; 
             aspect-ratio: 1 / 1.5 !important; 
             border: 2px solid rgba(255,255,255,0.15); 
             border-radius: 24px; 
@@ -47,7 +54,6 @@
             object-fit: contain !important; 
         }
         
-        /* Indicator alignment */
         .lg-outer .lg-pager-outer { 
             position: relative !important; 
             margin-top: 20px !important; 
