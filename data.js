@@ -13,7 +13,7 @@ const aetherCoreApps = [
     category: "Editors Choice", 
     title: "Page Forge", 
     logo: "Pageforge-Logo.jpg", 
-    description: "Transform your images into professional PDF documents with Page Forge.\n\nCore Features:\n• Quick Conversion: Convert images into PDFs instantly.\n• Easy Customization: Reorder pages, adjust margins, and set document sizes (A4, Letter, etc.).\n\nIdeal for:\n• Work & Business: Scanning invoices, receipts, and contracts.\n• Students: Digitizing notes, assignments, and study materials.\n• Personal Use: Archiving IDs, medical documents, or creating digital albums.", 
+    description: "Transform your images into professional PDF documents with Page Forge.\n\nIdeal for:\n• Work & Business: Scanning invoices, receipts, and contracts.\n• Students: Digitizing notes, assignments, and study materials.\n• Personal Use: Archiving IDs, medical documents, or creating digital albums.", 
     preview: ["Pageforge-1.png", "Pageforge-2.png", "Pageforge-3.png", "Pageforge-4.png", "Pageforge-5.png"], 
     url: "https://sharanmusician.com/Page-Forge/",
     rating: "5/5"
