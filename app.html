@@ -32,7 +32,7 @@
     <div class="px-6 pb-20">
         <h2 class="font-bold text-lg mb-2 text-[#F8FAFC]">About this app</h2>
         <p id="desc" class="text-gray-400 text-sm leading-relaxed mb-3"></p>
-        <div id="ratingContainer" class="flex items-center gap-2"></div>
+        <div id="ratingContainer" class="flex items-center gap-1"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -59,7 +59,6 @@
                 
                 document.getElementById('slides').innerHTML = app.preview.map((p, index) => {
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
-                    // Each slide is now a clickable link to fullscreen.html with index passed
                     return `
                     <div class="swiper-slide flex justify-center">
                         <a href="fullscreen.html?id=${id}&index=${index}" class="block aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
