@@ -89,7 +89,7 @@ const aetherCoreApps = [
         category: "Student Utilities", 
         title: "CGPA Calci", 
         logo: "CPGA-Logo.png", 
-        description: "Calculate your academic standing with precision using GPA Forge.\n\nIdeal for:\n• Engineering Students: Tracking semester-wise performance, calculating credit-weighted averages, and forecasting final degree grades.\n• Academic Planning: Managing complex grading scales, lab-to-theory credit ratios, and GPA requirements for internships.\n• Degree Tracking: Monitoring progress toward graduation requirements and identifying subjects needing performance improvement.",
+        description: "Calculate your academic standing with precision using CGPA Calci.\n\nIdeal for:\n• Engineering Students: Tracking semester-wise performance, calculating credit-weighted averages, and forecasting final degree grades.\n• Academic Planning: Managing complex grading scales, lab-to-theory credit ratios, and GPA requirements for internships.\n• Degree Tracking: Monitoring progress toward graduation requirements and identifying subjects needing performance improvement.",
         preview: [""], 
         url: "https://rrbmusics-afk.github.io/CGPA-Calculator/",
         rating: "4/5"
