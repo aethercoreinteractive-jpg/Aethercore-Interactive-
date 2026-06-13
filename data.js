@@ -9,7 +9,6 @@ const categoryOrder = {
 const aetherCoreApps = [
     // --- Editors Choice ---
     { 
-        { 
     id: 1, 
     category: "Editors Choice", 
     title: "Page Forge", 
