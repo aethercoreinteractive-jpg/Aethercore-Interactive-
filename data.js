@@ -80,7 +80,7 @@ const aetherCoreApps = [
         title: "Scientific Calci", 
         logo: "ScientificLogo.png", 
         description: "Solve complex equations and master technical precision with Scientific Calci.\n\nIdeal for:\n• STEM Professionals: Handling advanced calculus, statistical modeling, and intricate engineering equations.\n• Students: Mastering physics, chemistry, and mathematics with reliable, high-speed computation for assignments and exams.\n• Technical Projects: Streamlining unit conversions, data analysis, and professional-grade measurements.", 
-        preview: ["Scientific-1.png", "Scientific-calculator.jpg"], 
+        preview: ["Scientific -1.png", "Scientific-calculator.jpg"], 
         url: "https://sharanmusician.com/Scientific-calculator-/",
         rating: "4/5"
     },
