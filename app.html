@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
     <style>
-        /* Full screen backdrop */
+        /* Professional high-aesthetic overlay */
         .lg-outer { 
-            background: rgba(0,0,0,0.95) !important; 
+            background: rgba(10, 12, 15, 0.98) !important; 
+            backdrop-filter: blur(10px) !important;
             position: fixed !important; 
             inset: 0 !important; 
             z-index: 9999 !important;
         }
         
-        /* Flex container - Ensures items stack vertically */
+        /* Modern Flexbox centering stack */
         .lg-outer .lg-inner { 
             display: flex !important; 
             flex-direction: column !important; 
@@ -26,14 +27,16 @@
             justify-content: center !important; 
             height: 100dvh !important; 
             width: 100% !important;
-            padding: 0 !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
         }
         
-        /* Full-screen image container - Pushed slightly up to make room for indicator */
+        /* Minimalist image container, allowing aspect ratio to breathe */
         .lg-outer .lg-img-wrap { 
-            flex: 0 0 auto !important; 
-            width: 100vw !important; 
-            height: 75dvh !important; 
+            flex: 0 1 auto !important; 
+            width: 100% !important; 
+            max-width: 500px !important; 
+            height: 65vh !important; 
             display: flex !important; 
             align-items: center !important; 
             justify-content: center !important; 
@@ -45,16 +48,17 @@
             width: 100% !important; 
             height: 100% !important; 
             object-fit: contain !important; 
+            border-radius: 12px;
         }
         
-        /* Indicator positioned clearly below the image */
+        /* Indicator positioned with breathing room for high-end feel */
         .lg-outer .lg-pager-outer { 
             position: relative !important; 
-            margin-top: 30px !important; 
+            margin-top: 40px !important; 
             width: 100% !important; 
             display: flex !important; 
             justify-content: center !important; 
-            z-index: 10 !important;
+            flex: 0 0 auto !important;
         }
     </style>
 </head>
