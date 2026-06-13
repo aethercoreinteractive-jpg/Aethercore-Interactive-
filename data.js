@@ -14,7 +14,7 @@ const aetherCoreApps = [
         title: "Page Forge", 
         logo: "Pageforge-Logo.png", 
         description: "Convert images to PDF.", 
-        preview: ["Pageforge-1, Pageforge-2, Pageforge-3, Pageforge-4, Pageforge-5"], 
+        preview: ["Pageforge-1.jpg", "Pageforge-2.jpg", "Pageforge-3.jpg", "Pageforge-4.jpg", "Pageforge-5.jpg"], 
         url: "https://sharanmusician.com/Page-Forge/",
         rating: "5/5"
     },
@@ -25,7 +25,8 @@ const aetherCoreApps = [
         logo: "assets/resume-logo.png", 
         description: "Build professional resumes.", 
         preview: ["assets/resume-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "4/5"
     },
 
     // --- Games ---
@@ -36,7 +37,8 @@ const aetherCoreApps = [
         logo: "assets/quiz-logo.png", 
         description: "Test your skills.", 
         preview: ["assets/quiz-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "5/5"
     },
     { 
         id: 4, 
@@ -45,7 +47,8 @@ const aetherCoreApps = [
         logo: "assets/calc-logo.png", 
         description: "High-speed arcade action.", 
         preview: ["assets/calc-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "4/5"
     },
 
     // --- Apps ---
@@ -56,7 +59,8 @@ const aetherCoreApps = [
         logo: "assets/calc-logo.png", 
         description: "Advanced engineering tool.", 
         preview: ["assets/calc-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "5/5"
     },
     { 
         id: 6, 
@@ -65,7 +69,8 @@ const aetherCoreApps = [
         logo: "assets/results-logo.png", 
         description: "Check results.", 
         preview: ["assets/results-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "4/5"
     },
 
     // --- General ---
@@ -76,7 +81,8 @@ const aetherCoreApps = [
         logo: "assets/timetable-logo.png", 
         description: "Schedule tracker.", 
         preview: ["assets/time-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "5/5"
     },
     { 
         id: 8, 
@@ -85,6 +91,7 @@ const aetherCoreApps = [
         logo: "assets/map-logo.png", 
         description: "Navigate campus.", 
         preview: ["assets/map-prev1.jpg"], 
-        url: "#" 
+        url: "#",
+        rating: "4/5"
     }
 ];
