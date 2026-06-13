@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="data.js"></script>
+    <style>
+        body, html { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; }
+        .swiper { width: 100%; height: 100dvh; }
+        .swiper-slide { display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <button onclick="history.back()" class="absolute top-6 left-6 z-50 p-2 text-white bg-black/50 rounded-full backdrop-blur-md">
+        ✕
+    </button>
+
+    <div class="swiper fullscreenSwiper">
+        <div class="swiper-wrapper" id="fullscreenSlides"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const startIndex = parseInt(params.get('index') || 0);
+            
+            const app = aetherCoreApps.find(a => a.id == id);
+            
+            if (app) {
+                const container = document.getElementById('fullscreenSlides');
+                container.innerHTML = app.preview.map(p => {
+                    const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
+                    return `
+                    <div class="swiper-slide">
+                        ${isVideo 
+                            ? `<video src="${p}" class="w-full h-full object-contain" controls playsinline></video>` 
+                            : `<img src="${p}" class="w-full h-full object-contain">`}
+                    </div>`;
+                }).join('');
+                
+                new Swiper(".fullscreenSwiper", {
+                    initialSlide: startIndex,
+                    slidesPerView: 1,
+                    zoom: true
+                });
+            }
+        });
+    </script>
+</body>
+</html>
