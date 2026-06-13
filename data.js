@@ -1,9 +1,9 @@
 // Define your section order here (Lower number = Higher up)
 const categoryOrder = {
     "Editors Choice": 1,
-    "Games": 2,
-    "Apps": 3,
-    "General": 4
+    "Games": 3,
+    "Apps": 4,
+    "General": 2
 };
 
 const aetherCoreApps = [
