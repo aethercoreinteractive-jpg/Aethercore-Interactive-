@@ -3,7 +3,7 @@ const categoryOrder = {
     "Editors Choice": 1,
     "Games": 3,
     "Apps": 4,
-    "General": 2
+    "Student Utilities": 2
 };
 
 const aetherCoreApps = [
@@ -76,17 +76,17 @@ const aetherCoreApps = [
     // --- General ---
     { 
         id: 7, 
-        category: "General", 
-        title: "Exam Timetable", 
-        logo: "assets/timetable-logo.png", 
+        category: "Student Utilities", 
+        title: "Scientific Calculator", 
+        logo: "", 
         description: "Schedule tracker.", 
-        preview: ["assets/time-prev1.jpg"], 
-        url: "#",
-        rating: "5/5"
+        preview: ["Scientific-calculator.jpg"], 
+        url: "https://sharanmusician.com/Scientific-calculator-/",
+        rating: "4/5"
     },
     { 
         id: 8, 
-        category: "General", 
+        category: "Student Utilities", 
         title: "Campus Map", 
         logo: "assets/map-logo.png", 
         description: "Navigate campus.", 
