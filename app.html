@@ -6,61 +6,7 @@
     <title>App Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-pager.min.css"/>
     <script src="data.js"></script>
-    <style>
-        /* Professional high-aesthetic overlay */
-        .lg-outer { 
-            background: rgba(10, 12, 15, 0.98) !important; 
-            backdrop-filter: blur(10px) !important;
-            position: fixed !important; 
-            inset: 0 !important; 
-            z-index: 9999 !important;
-        }
-        
-        /* Modern Flexbox centering stack */
-        .lg-outer .lg-inner { 
-            display: flex !important; 
-            flex-direction: column !important; 
-            align-items: center !important; 
-            justify-content: center !important; 
-            height: 100dvh !important; 
-            width: 100% !important;
-            padding: 20px !important;
-            box-sizing: border-box !important;
-        }
-        
-        /* Minimalist image container, allowing aspect ratio to breathe */
-        .lg-outer .lg-img-wrap { 
-            flex: 0 1 auto !important; 
-            width: 100% !important; 
-            max-width: 500px !important; 
-            height: 65vh !important; 
-            display: flex !important; 
-            align-items: center !important; 
-            justify-content: center !important; 
-            background: transparent !important; 
-            margin: 0 auto !important;
-        }
-        
-        .lg-outer .lg-object { 
-            width: 100% !important; 
-            height: 100% !important; 
-            object-fit: contain !important; 
-            border-radius: 12px;
-        }
-        
-        /* Indicator positioned with breathing room for high-end feel */
-        .lg-outer .lg-pager-outer { 
-            position: relative !important; 
-            margin-top: 40px !important; 
-            width: 100% !important; 
-            display: flex !important; 
-            justify-content: center !important; 
-            flex: 0 0 auto !important;
-        }
-    </style>
 </head>
 <body class="bg-[#121417] text-[#E2E8F0]">
 
@@ -89,9 +35,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/pager/lg-pager.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -104,16 +47,16 @@
                 document.getElementById('logo').src = app.logo;
                 document.getElementById('btn').href = app.url;
                 
-                document.getElementById('slides').innerHTML = app.preview.map(p => {
+                document.getElementById('slides').innerHTML = app.preview.map((p, index) => {
                     const isVideo = p.endsWith('.mp4') || p.endsWith('.webm');
+                    // Each slide is now a clickable link to fullscreen.html with index passed
                     return `
                     <div class="swiper-slide flex justify-center">
-                        <div class="aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126] cursor-pointer" 
-                             data-src="${p}">
+                        <a href="fullscreen.html?id=${id}&index=${index}" class="block aspect-video w-[90%] overflow-hidden rounded-2xl border border-[#2D3238] bg-[#1E2126]">
                             ${isVideo 
-                                ? `<video src="${p}" class="w-full h-full object-cover" controls playsinline></video>` 
+                                ? `<video src="${p}" class="w-full h-full object-cover" playsinline></video>` 
                                 : `<img src="${p}" class="w-full h-full object-cover">`}
-                        </div>
+                        </a>
                     </div>`;
                 }).join('');
                 
@@ -121,23 +64,6 @@
                     slidesPerView: 1, 
                     spaceBetween: 0,
                     pagination: { el: ".swiper-pagination", clickable: true }
-                });
-                
-                lightGallery(document.getElementById('slides'), {
-                    selector: '.swiper-slide > div',
-                    plugins: [lgPager],
-                    licenseKey: '0000-0000-000-0000',
-                    loop: true,
-                    fullScreen: false,
-                    zoom: true,
-                    pager: true,
-                    controls: false,
-                    hash: false,
-                    mobileSettings: {
-                        controls: false,
-                        showCloseIcon: true,
-                        download: false
-                    }
                 });
             }
         });
