@@ -16,7 +16,7 @@ const aetherCoreApps = [
         description: "Convert images to PDF.", 
         preview: ["Pageforge-1, Pageforge-2, Pageforge-3, Pageforge-4, Pageforge-5"], 
         url: "https://sharanmusician.com/Page-Forge/",
-        rating: "5/5
+        rating: "5/5"
     },
     { 
         id: 2, 
