@@ -73,7 +73,7 @@ const aetherCoreApps = [
         rating: "4/5"
     },
 
-    // --- General ---
+    // --- Student Utilities---
     { 
         id: 7, 
         category: "Student Utilities", 
@@ -84,8 +84,18 @@ const aetherCoreApps = [
         url: "https://sharanmusician.com/Scientific-calculator-/",
         rating: "4/5"
     },
-    { 
+     { 
         id: 8, 
+        category: "Student Utilities", 
+        title: "Cutoff Calci", 
+        logo: "CutoffLogo.png", 
+        description: "Solve complex equations and master technical precision with Scientific Calci (Scientific Calculator).\n\nIdeal for:\n• STEM Professionals: Handling advanced calculus, statistical modeling, and intricate engineering equations.\n• Students: Mastering physics, chemistry, and mathematics with reliable, high-speed computation for assignments and exams.\n• Technical Projects: Streamlining unit conversions, data analysis, and professional-grade measurements.", 
+        preview: ["Scientific-1.png", "Scientific-calculator.jpg"], 
+        url: "https://rrbmusics-afk.github.io/Cutoff-Calculator/",
+        rating: "4/5"
+    },
+    { 
+        id: 9, 
         category: "Student Utilities", 
         title: "CGPA Calci", 
         logo: "CPGA-Logo.png", 
