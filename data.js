@@ -89,7 +89,7 @@ const aetherCoreApps = [
         category: "Student Utilities", 
         title: "Cutoff Calci", 
         logo: "CutoffLogo.png", 
-        description: "Determine your engineering college admission prospects with TNEA Rank Predictor.\n\nIdeal for:\n• Prospective Students: Estimating admission chances based on historical cutoff trends and your specific community rank.\n• Career Planning: Comparing seat availability across top-tier institutions to build an optimized preference list.\n• Admission Strategy: Analyzing last-year opening and closing ranks to make data-driven decisions for TNEA counseling.", 
+        description: "Determine your engineering college admission prospects with TNEA Cutoff Calculator.\n\nIdeal for:\n• Prospective Students: Estimating admission chances based on historical cutoff trends and your specific community rank.\n• Career Planning: Comparing seat availability across top-tier institutions to build an optimized preference list.\n• Admission Strategy: Analyzing last-year opening and closing ranks to make data-driven decisions for TNEA counseling.", 
         preview: ["Scientific-1.png", "Scientific-calculator.jpg"], 
         url: "https://rrbmusics-afk.github.io/Cutoff-Calculator/",
         rating: "4/5"
