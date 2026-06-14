@@ -9,7 +9,7 @@ const categoryOrder = {
 const aetherCoreApps = [
     // --- Editors Choice ---
     { 
-    id: 1, 
+    id: 1.1, 
     category: "Editors Choice", 
     title: "Page Forge", 
     logo: "Pageforge-Logo.png", 
@@ -19,7 +19,7 @@ const aetherCoreApps = [
     rating: "5/5"
     },
     { 
-        id: 2, 
+        id: 1.2, 
         category: "Editors Choice", 
         title: "Resume Architect", 
         logo: "assets/resume-logo.png", 
@@ -31,7 +31,7 @@ const aetherCoreApps = [
 
     // --- Games ---
     { 
-        id: 3, 
+        id: 2.1, 
         category: "Games", 
         title: "Brainstorm Quiz", 
         logo: "assets/quiz-logo.png", 
@@ -41,7 +41,7 @@ const aetherCoreApps = [
         rating: "5/5"
     },
     { 
-        id: 4, 
+        id: 2.2, 
         category: "Games", 
         title: "Neon Racer", 
         logo: "assets/calc-logo.png", 
@@ -53,7 +53,7 @@ const aetherCoreApps = [
 
     // --- Apps ---
     { 
-        id: 5, 
+        id: 3.1, 
         category: "Apps", 
         title: "Scientific Calculator", 
         logo: "ScientificLogo.png", 
@@ -63,7 +63,7 @@ const aetherCoreApps = [
         rating: "5/5"
     },
     { 
-        id: 6, 
+        id: 3.2, 
         category: "Apps", 
         title: "Exam Result Portal", 
         logo: "assets/results-logo.png", 
@@ -75,7 +75,7 @@ const aetherCoreApps = [
 
     // --- Student Utilities---
     { 
-        id: 7, 
+        id: 4.1, 
         category: "Student Utilities", 
         title: "Scientific Calci", 
         logo: "ScientificLogo.png", 
@@ -85,7 +85,7 @@ const aetherCoreApps = [
         rating: "4/5"
     },
      { 
-        id: 8, 
+        id: 4.2, 
         category: "Student Utilities", 
         title: "Cutoff Calci", 
         logo: "CutoffLogo.png", 
@@ -95,7 +95,7 @@ const aetherCoreApps = [
         rating: "4/5"
     },
     { 
-        id: 9, 
+        id: 4.3, 
         category: "Student Utilities", 
         title: "CGPA Calci", 
         logo: "CPGA-Logo.png", 
