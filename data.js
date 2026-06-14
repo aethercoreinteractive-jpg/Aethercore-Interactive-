@@ -79,7 +79,7 @@ const aetherCoreApps = [
         category: "Student Utilities", 
         title: "Unidesk", 
         logo: "UnideskLogo.png", 
-        description: "Determine your engineering college admission prospects with TNEA Cutoff Calculator.\n\nIdeal for:\n• Prospective Students: Estimating admission chances based on historical cutoff trends and your specific community rank.\n• Career Planning: Comparing seat availability across top-tier institutions to build an optimized preference list.\n• Admission Strategy: Analyzing last-year opening and closing ranks to make data-driven decisions for TNEA counseling.", 
+        description: "Simplify your academic life with Unidesk, the all-in-one student utility suite by Aethercore Interactive.\n\nIdeal for:\n• Daily Organization: Tracking exam schedules, monitoring result updates, and managing your academic timetable.\n• Productivity: Accessing essential tools like PDF-to-image converters and document handlers.\n• All-in-One Management: Centralizing every student need—from routine tasks to critical academic announcements—in one seamless interface.", 
         preview: ["Unidesk-1", "Unidesk-2", "Unidesk-3", "Unidesk-4", "Unidesk-5", "Unidesk-6"], 
         url: "https://rrbmusics-afk.github.io/Unidesk/",
         rating: "5/5"
