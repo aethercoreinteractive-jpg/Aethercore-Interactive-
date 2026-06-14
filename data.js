@@ -77,6 +77,16 @@ const aetherCoreApps = [
     { 
         id: 4.1, 
         category: "Student Utilities", 
+        title: "Unidesk", 
+        logo: "UnideskLogo.png", 
+        description: "Determine your engineering college admission prospects with TNEA Cutoff Calculator.\n\nIdeal for:\n• Prospective Students: Estimating admission chances based on historical cutoff trends and your specific community rank.\n• Career Planning: Comparing seat availability across top-tier institutions to build an optimized preference list.\n• Admission Strategy: Analyzing last-year opening and closing ranks to make data-driven decisions for TNEA counseling.", 
+        preview: ["Unidesk-1", "Unidesk-2", "Unidesk-3", "Unidesk-4", "Unidesk-5", "Unidesk-6"], 
+        url: "https://rrbmusics-afk.github.io/Unidesk/",
+        rating: "5/5"
+    },
+    { 
+        id: 4.2, 
+        category: "Student Utilities", 
         title: "Scientific Calci", 
         logo: "ScientificLogo.png", 
         description: "Solve complex equations and master technical precision with Scientific Calci (Scientific Calculator).\n\nIdeal for:\n• STEM Professionals: Handling advanced calculus, statistical modeling, and intricate engineering equations.\n• Students: Mastering physics, chemistry, and mathematics with reliable, high-speed computation for assignments and exams.\n• Technical Projects: Streamlining unit conversions, data analysis, and professional-grade measurements.", 
@@ -85,7 +95,7 @@ const aetherCoreApps = [
         rating: "4/5"
     },
      { 
-        id: 4.2, 
+        id: 4.3, 
         category: "Student Utilities", 
         title: "Cutoff Calci", 
         logo: "CutoffLogo.png", 
@@ -95,7 +105,7 @@ const aetherCoreApps = [
         rating: "4/5"
     },
     { 
-        id: 4.3, 
+        id: 4.4, 
         category: "Student Utilities", 
         title: "CGPA Calci", 
         logo: "CPGA-Logo.png", 
