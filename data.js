@@ -80,7 +80,7 @@ const aetherCoreApps = [
         title: "Unidesk", 
         logo: "UnideskLogo.png", 
         description: "Simplify your academic life with Unidesk, the all-in-one student utility suite by Aethercore Interactive.\n\nIdeal for:\n• Daily Organization: Tracking exam schedules, monitoring result updates, and managing your academic timetable.\n• Productivity: Accessing essential tools like PDF-to-image converters and document handlers.\n• All-in-One Management: Centralizing every student need—from routine tasks to critical academic announcements—in one seamless interface.", 
-        preview: ["Unidesk-1", "Unidesk-2", "Unidesk-3", "Unidesk-4", "Unidesk-5", "Unidesk-6"], 
+        preview: ["Unidesk-1.jpg", "Unidesk-2.jpg", "Unidesk-3.jpg", "Unidesk-4.jpg", "Unidesk-5.jpg", "Unidesk-6.jpg"], 
         url: "https://rrbmusics-afk.github.io/Unidesk/",
         rating: "5/5"
     },
