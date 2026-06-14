@@ -89,7 +89,7 @@ const aetherCoreApps = [
         category: "Student Utilities", 
         title: "Cutoff Calci", 
         logo: "CutoffLogo.png", 
-        description: "Solve complex equations and master technical precision with Scientific Calci (Scientific Calculator).\n\nIdeal for:\n• STEM Professionals: Handling advanced calculus, statistical modeling, and intricate engineering equations.\n• Students: Mastering physics, chemistry, and mathematics with reliable, high-speed computation for assignments and exams.\n• Technical Projects: Streamlining unit conversions, data analysis, and professional-grade measurements.", 
+        description: "Determine your engineering college admission prospects with TNEA Rank Predictor.\n\nIdeal for:\n• Prospective Students: Estimating admission chances based on historical cutoff trends and your specific community rank.\n• Career Planning: Comparing seat availability across top-tier institutions to build an optimized preference list.\n• Admission Strategy: Analyzing last-year opening and closing ranks to make data-driven decisions for TNEA counseling.", 
         preview: ["Scientific-1.png", "Scientific-calculator.jpg"], 
         url: "https://rrbmusics-afk.github.io/Cutoff-Calculator/",
         rating: "4/5"
