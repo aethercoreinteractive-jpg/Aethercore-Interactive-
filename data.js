@@ -119,7 +119,7 @@ const aetherCoreApps = [
         category: "Student Utilities", 
         title: "12th % Calci", 
         logo: "12%Logo.png", 
-        description: "Calculate your academic standing with precision using CGPA Calci (CGPA Calculator).\n\nIdeal for:\n• Engineering Students: Tracking semester-wise performance, calculating credit-weighted averages, and forecasting final degree grades.\n• Academic Planning: Managing complex grading scales, lab-to-theory credit ratios, and GPA requirements for internships.\n• Degree Tracking: Monitoring progress toward graduation requirements and identifying subjects needing performance improvement.",
+        description: "Calculate your academic standing instantly with the 12th Percentage Calculator.\n\nIdeal for:\n• Students: Converting board exam marks into accurate percentage scores for college admissions.\n• Application Processes: Quickly verifying eligibility for university entrance requirements and scholarship criteria.\n• Academic Planning: Easily evaluating your performance across different subjects and board-specific grading systems.",
         preview: ["12%-1.png", "12%-2.jpg"], 
         url: "https://rrbmusics-afk.github.io/Percentage-calculator/",
         rating: "5/5"
